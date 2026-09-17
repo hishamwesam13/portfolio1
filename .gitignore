@@ -8,6 +8,7 @@ Thumbs.db
 *.log
 
 # Temp files & test screenshots
+server.js
 deck-*.png
 test-*.png
 full-page.png
