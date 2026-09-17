@@ -1,6 +1,6 @@
 # ⚡ Eng. Wesam Balalem — Official Engineering & Web Portfolio
 
-[![GitHub stars](https://img.shields.io/github/stars/hishamwesam13/-portfolio?style=for-the-badge&color=00f2fe)](https://github.com/hishamwesam13/-portfolio)
+[![GitHub stars](https://img.shields.io/github/stars/hishamwesam13/portfolio1?style=for-the-badge&color=00f2fe)](https://github.com/hishamwesam13/portfolio1)
 [![Vercel Deployment](https://img.shields.io/badge/Deployed%20with-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
 [![IEEE Member](https://img.shields.io/badge/IEEE-Active%20Student%20Member-00629B?style=for-the-badge&logo=ieee)](https://ieee.org)
 [![University](https://img.shields.io/badge/An--Najah-Electrical%20Engineering-red?style=for-the-badge)](https://www.najah.edu)
