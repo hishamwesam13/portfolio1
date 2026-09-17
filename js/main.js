@@ -792,28 +792,41 @@
       tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(${tabletRotY}deg) rotateX(${tabletRotX}deg) translateZ(30px)`;
     }
 
-    // 2. Phone motion: "ينزل معي كل ما أعمل سكرول لتحت" on ALL devices (Mobile & Desktop)
+    // 2. Phone motion: "ينزل معي بالسكرول" on ALL devices
     if (phone) {
-      const startOffset = Math.max(0, sideScreenTop - 40);
-      const relativeScroll = Math.max(0, scrollY - startOffset);
-      targetPhoneY = relativeScroll * 0.94;
-      
-      // Fluid spring lerp (0.082 damping factor for zero jitter, silky smoothness)
-      const diff = targetPhoneY - currentPhoneY;
-      currentPhoneY += diff * 0.082;
-      phoneVelocity = diff;
+      if (isMobile) {
+        // Mobile: smoothly descends with scroll inside the side screen frame
+        const mobileScroll = Math.max(0, scrollY - (sideScreenTop - 100));
+        const targetMobileY = Math.min(55, mobileScroll * 0.25);
+        const diff = targetMobileY - currentPhoneY;
+        currentPhoneY += diff * 0.082;
+        phoneVelocity = diff;
 
-      // Dynamic 3D tilt reactive to scrolling velocity
-      const targetTiltX = 10 + Math.max(-12, Math.min(16, phoneVelocity * 0.1));
-      const targetTiltY = -14 + Math.sin(currentPhoneY * 0.0022) * 6;
-      const targetTiltZ = Math.max(-5, Math.min(5, -phoneVelocity * 0.035));
+        const tiltX = 10 + Math.max(-10, Math.min(14, phoneVelocity * 0.15));
+        const tiltY = -12 + Math.sin(currentPhoneY * 0.04) * 4;
 
-      currentTiltX += (targetTiltX - currentTiltX) * 0.1;
-      currentTiltY += (targetTiltY - currentTiltY) * 0.1;
-      currentTiltZ += (targetTiltZ - currentTiltZ) * 0.1;
+        phone.style.transform = `translate3d(0, ${currentPhoneY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(40px) scale(0.88)`;
+      } else {
+        // Desktop: full glide down in side column alongside content
+        const startOffset = Math.max(0, sideScreenTop - 40);
+        const relativeScroll = Math.max(0, scrollY - startOffset);
+        targetPhoneY = relativeScroll * 0.94;
+        
+        // Fluid spring lerp (0.082 damping factor for zero jitter)
+        const diff = targetPhoneY - currentPhoneY;
+        currentPhoneY += diff * 0.082;
+        phoneVelocity = diff;
 
-      const mobileScale = isMobile ? 'scale(0.86)' : '';
-      phone.style.transform = `translate3d(0, ${currentPhoneY}px, 0) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg) rotateZ(${currentTiltZ}deg) translateZ(60px) ${mobileScale}`;
+        const targetTiltX = 10 + Math.max(-12, Math.min(16, phoneVelocity * 0.1));
+        const targetTiltY = -14 + Math.sin(currentPhoneY * 0.0022) * 6;
+        const targetTiltZ = Math.max(-5, Math.min(5, -phoneVelocity * 0.035));
+
+        currentTiltX += (targetTiltX - currentTiltX) * 0.1;
+        currentTiltY += (targetTiltY - currentTiltY) * 0.1;
+        currentTiltZ += (targetTiltZ - currentTiltZ) * 0.1;
+
+        phone.style.transform = `translate3d(0, ${currentPhoneY}px, 0) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg) rotateZ(${currentTiltZ}deg) translateZ(60px)`;
+      }
     }
 
     requestAnimationFrame(animateDevices);

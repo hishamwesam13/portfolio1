@@ -2937,67 +2937,124 @@ img {
    RESPONSIVE DESIGN
    ========================================================================== */
 @media (max-width: 900px) {
-  /* Dedicated side-by-side corridor: Content on right (RTL), 3D Gliding Phone on left */
   .hero-container {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-    position: relative;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .hero-content {
-    flex: 1;
-    min-width: 0;
-    max-width: calc(100% - 118px);
+    width: 100%;
+    max-width: 580px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    align-items: center;
+    gap: 16px;
+    margin: 0 auto;
   }
 
-  /* 3D Side Screen: Dedicated vertical lane for gliding phone */
+  .badges-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hero-profile-badge {
+    margin: 0 auto;
+  }
+
+  .hero-titles {
+    text-align: center;
+  }
+
+  .hero-name {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .live-typing-card {
+    width: 100%;
+    text-align: right;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-glass {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-group-secondary {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .btn-group-secondary .btn-glass {
+    flex: 1;
+  }
+
+  .hero-stats-grid {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* 3D Side Screen: Centered, perfectly framed, tablet in background & phone in foreground */
   .hero-side-screen {
-    width: 108px;
-    min-width: 108px;
-    height: 380px;
+    width: 100%;
+    max-width: 350px;
+    height: 310px;
+    margin: 10px auto;
     position: relative;
-    overflow: visible;
-    z-index: 45;
     perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
   }
 
   .device-tablet {
-    width: 135px;
-    height: 115px;
+    width: 220px;
+    height: 180px;
     position: absolute;
-    left: -15px;
-    top: 10px;
-    z-index: 2;
+    left: 10px;
+    top: 20px;
+    z-index: 5;
   }
 
   .device-phone {
-    width: 95px;
-    height: 195px;
+    width: 135px;
+    height: 260px;
     position: absolute;
-    left: 8px;
-    top: 25px;
-    z-index: 50;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  }
-
-  /* Reserved side corridor so the phone glides all the way down without covering text or cards */
-  #about .container,
-  #skills .container,
-  #cv .container,
-  #projects .container,
-  #contact .container {
-    padding-left: 105px !important;
-    padding-right: 14px !important;
+    right: 15px;
+    top: 15px;
+    z-index: 10;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
   }
 
   .about-grid, .skills-wrapper-grid, .projects-grid, .contact-layout {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   
   .cv-grid {
@@ -3010,36 +3067,40 @@ img {
 }
 
 @media (max-width: 480px) {
-  .hero-content {
-    max-width: calc(100% - 96px);
+  .hero-name {
+    font-size: 26px;
+  }
+
+  .hero-subtitle {
+    font-size: 12.5px;
+  }
+
+  .btn-group-secondary {
+    flex-direction: column;
+  }
+
+  .hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 
   .hero-side-screen {
-    width: 88px;
-    min-width: 88px;
+    max-width: 315px;
+    height: 285px;
   }
 
   .device-tablet {
-    width: 115px;
-    height: 98px;
-    left: -15px;
-    top: 5px;
+    width: 195px;
+    height: 160px;
+    left: 5px;
+    top: 15px;
   }
 
   .device-phone {
-    width: 80px;
-    height: 165px;
-    left: 4px;
-    top: 18px;
-  }
-
-  #about .container,
-  #skills .container,
-  #cv .container,
-  #projects .container,
-  #contact .container {
-    padding-left: 90px !important;
-    padding-right: 10px !important;
+    width: 120px;
+    height: 235px;
+    right: 10px;
+    top: 12px;
   }
 }
 
@@ -3545,27 +3606,7 @@ html[dir="ltr"] .nav-link.active::after {
   left: 0;
 }
 
-@media (max-width: 900px) {
-  html[dir="ltr"] .hero-container {
-    flex-direction: row;
-  }
-  html[dir="ltr"] .device-phone {
-    left: auto;
-    right: 8px;
-  }
-  html[dir="ltr"] .device-tablet {
-    left: auto;
-    right: -15px;
-  }
-  html[dir="ltr"] #about .container,
-  html[dir="ltr"] #skills .container,
-  html[dir="ltr"] #cv .container,
-  html[dir="ltr"] #projects .container,
-  html[dir="ltr"] #contact .container {
-    padding-right: 105px !important;
-    padding-left: 14px !important;
-  }
-}
+
 
 
 
