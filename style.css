@@ -2937,44 +2937,63 @@ img {
    RESPONSIVE DESIGN
    ========================================================================== */
 @media (max-width: 900px) {
+  /* Dedicated side-by-side corridor: Content on right (RTL), 3D Gliding Phone on left */
   .hero-container {
     display: flex;
-    flex-direction: column;
-    gap: 24px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
   }
 
   .hero-content {
+    flex: 1;
+    min-width: 0;
+    max-width: calc(100% - 118px);
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    width: 100%;
+    gap: 14px;
   }
 
-  /* 3D Side Screen positioned cleanly after hero content without any overlap */
+  /* 3D Side Screen: Dedicated vertical lane for gliding phone */
   .hero-side-screen {
-    width: 100%;
-    max-width: 350px;
-    height: 310px;
-    margin: 15px auto;
+    width: 108px;
+    min-width: 108px;
+    height: 380px;
     position: relative;
+    overflow: visible;
+    z-index: 45;
     perspective: 1000px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .device-tablet {
-    width: 220px;
-    height: 185px;
-    left: 0;
-    top: 15px;
+    width: 135px;
+    height: 115px;
+    position: absolute;
+    left: -15px;
+    top: 10px;
+    z-index: 2;
   }
 
   .device-phone {
-    width: 135px;
-    height: 265px;
+    width: 95px;
+    height: 195px;
+    position: absolute;
+    left: 8px;
     top: 25px;
-    right: 5px;
+    z-index: 50;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Reserved side corridor so the phone glides all the way down without covering text or cards */
+  #about .container,
+  #skills .container,
+  #cv .container,
+  #projects .container,
+  #contact .container {
+    padding-left: 105px !important;
+    padding-right: 14px !important;
   }
 
   .about-grid, .skills-wrapper-grid, .projects-grid, .contact-layout {
@@ -2991,24 +3010,36 @@ img {
 }
 
 @media (max-width: 480px) {
+  .hero-content {
+    max-width: calc(100% - 96px);
+  }
+
   .hero-side-screen {
-    max-width: 310px;
-    height: 270px;
-    margin: 10px auto;
+    width: 88px;
+    min-width: 88px;
   }
 
   .device-tablet {
-    width: 195px;
-    height: 160px;
-    left: 0;
-    top: 10px;
+    width: 115px;
+    height: 98px;
+    left: -15px;
+    top: 5px;
   }
 
   .device-phone {
-    width: 125px;
-    height: 235px;
+    width: 80px;
+    height: 165px;
+    left: 4px;
     top: 18px;
-    right: 0;
+  }
+
+  #about .container,
+  #skills .container,
+  #cv .container,
+  #projects .container,
+  #contact .container {
+    padding-left: 90px !important;
+    padding-right: 10px !important;
   }
 }
 
@@ -3512,6 +3543,28 @@ html[dir="ltr"] .copyright {
 html[dir="ltr"] .nav-link.active::after {
   right: auto;
   left: 0;
+}
+
+@media (max-width: 900px) {
+  html[dir="ltr"] .hero-container {
+    flex-direction: row;
+  }
+  html[dir="ltr"] .device-phone {
+    left: auto;
+    right: 8px;
+  }
+  html[dir="ltr"] .device-tablet {
+    left: auto;
+    right: -15px;
+  }
+  html[dir="ltr"] #about .container,
+  html[dir="ltr"] #skills .container,
+  html[dir="ltr"] #cv .container,
+  html[dir="ltr"] #projects .container,
+  html[dir="ltr"] #contact .container {
+    padding-right: 105px !important;
+    padding-left: 14px !important;
+  }
 }
 
 

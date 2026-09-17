@@ -780,52 +780,40 @@
 
   function animateDevices() {
     const scrollY = window.scrollY;
-    const isMobile = window.innerWidth <= 992;
+    const isMobile = window.innerWidth <= 900;
     const sideScreen = document.getElementById('heroSideScreen');
     const sideScreenTop = sideScreen ? sideScreen.offsetTop : 0;
 
-    // 1. Tablet motion
+    // 1. Tablet motion: "ينزل ويطلع شوي" on ALL devices (Mobile, Tablet, Laptop, PC)
     if (tablet) {
-      if (isMobile) {
-        // Mobile: Subtle floating without jumping
-        const tabletY = Math.sin(scrollY * 0.005) * 6;
-        tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(10deg) rotateX(6deg)`;
-      } else {
-        // Desktop: Dynamic parallax breathing float
-        const tabletY = Math.sin(scrollY * 0.004) * 14 + (scrollY * 0.12);
-        const tabletRotY = 16 - Math.sin(scrollY * 0.003) * 6;
-        const tabletRotX = 8 + Math.cos(scrollY * 0.003) * 5;
-        tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(${tabletRotY}deg) rotateX(${tabletRotX}deg) translateZ(30px)`;
-      }
+      const tabletY = Math.sin(scrollY * 0.004) * 14 + (scrollY * 0.1);
+      const tabletRotY = 16 - Math.sin(scrollY * 0.003) * 6;
+      const tabletRotX = 8 + Math.cos(scrollY * 0.003) * 5;
+      tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(${tabletRotY}deg) rotateX(${tabletRotX}deg) translateZ(30px)`;
     }
 
-    // 2. Phone motion: On desktop, glides down with scroll; On mobile, stays anchored safely
+    // 2. Phone motion: "ينزل معي كل ما أعمل سكرول لتحت" on ALL devices (Mobile & Desktop)
     if (phone) {
-      if (isMobile) {
-        // MOBILE SAFE MODE: Phone stays cleanly in its mockup box, gentle 3D tilt, NEVER overlaps text!
-        const phoneFloat = Math.cos(scrollY * 0.005) * 8;
-        phone.style.transform = `translate3d(0, ${phoneFloat}px, 0) rotateX(8deg) rotateY(-10deg) rotateZ(0deg)`;
-      } else {
-        // DESKTOP MODE: Sits cleanly beside tablet, then glides down smoothly in its side column
-        const startOffset = Math.max(0, sideScreenTop - 40);
-        const relativeScroll = Math.max(0, scrollY - startOffset);
-        targetPhoneY = relativeScroll * 0.94;
-        
-        // Fluid spring lerp (0.082 damping factor for zero jitter)
-        const diff = targetPhoneY - currentPhoneY;
-        currentPhoneY += diff * 0.082;
-        phoneVelocity = diff;
+      const startOffset = Math.max(0, sideScreenTop - 40);
+      const relativeScroll = Math.max(0, scrollY - startOffset);
+      targetPhoneY = relativeScroll * 0.94;
+      
+      // Fluid spring lerp (0.082 damping factor for zero jitter, silky smoothness)
+      const diff = targetPhoneY - currentPhoneY;
+      currentPhoneY += diff * 0.082;
+      phoneVelocity = diff;
 
-        const targetTiltX = 10 + Math.max(-12, Math.min(16, phoneVelocity * 0.1));
-        const targetTiltY = -14 + Math.sin(currentPhoneY * 0.0022) * 6;
-        const targetTiltZ = Math.max(-5, Math.min(5, -phoneVelocity * 0.035));
+      // Dynamic 3D tilt reactive to scrolling velocity
+      const targetTiltX = 10 + Math.max(-12, Math.min(16, phoneVelocity * 0.1));
+      const targetTiltY = -14 + Math.sin(currentPhoneY * 0.0022) * 6;
+      const targetTiltZ = Math.max(-5, Math.min(5, -phoneVelocity * 0.035));
 
-        currentTiltX += (targetTiltX - currentTiltX) * 0.1;
-        currentTiltY += (targetTiltY - currentTiltY) * 0.1;
-        currentTiltZ += (targetTiltZ - currentTiltZ) * 0.1;
+      currentTiltX += (targetTiltX - currentTiltX) * 0.1;
+      currentTiltY += (targetTiltY - currentTiltY) * 0.1;
+      currentTiltZ += (targetTiltZ - currentTiltZ) * 0.1;
 
-        phone.style.transform = `translate3d(0, ${currentPhoneY}px, 0) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg) rotateZ(${currentTiltZ}deg) translateZ(60px)`;
-      }
+      const mobileScale = isMobile ? 'scale(0.86)' : '';
+      phone.style.transform = `translate3d(0, ${currentPhoneY}px, 0) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg) rotateZ(${currentTiltZ}deg) translateZ(60px) ${mobileScale}`;
     }
 
     requestAnimationFrame(animateDevices);
