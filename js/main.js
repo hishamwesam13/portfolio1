@@ -4,7 +4,17 @@
  * Live Typing Loop, Circuit Background Canvas, and Secure Admin Dashboard
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
+  'use strict';
+  // Ensure this file ONLY executes inside a client web browser (Client-Side Only)
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) {
+      module.exports = {};
+    }
+    return;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
 
   /* ==========================================================================
      0. BILINGUAL DICTIONARY (ARABIC & ENGLISH)
@@ -770,40 +780,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function animateDevices() {
     const scrollY = window.scrollY;
+    const isMobile = window.innerWidth <= 992;
     const sideScreen = document.getElementById('heroSideScreen');
     const sideScreenTop = sideScreen ? sideScreen.offsetTop : 0;
 
-    // 1. Tablet motion: "ينزل شوي ويطلع شوي" on ALL devices (Mobile, Tablet, Laptop, PC)
+    // 1. Tablet motion
     if (tablet) {
-      // Dynamic parallax breathing float
-      const tabletY = Math.sin(scrollY * 0.004) * 14 + (scrollY * 0.12);
-      const tabletRotY = 16 - Math.sin(scrollY * 0.003) * 6;
-      const tabletRotX = 8 + Math.cos(scrollY * 0.003) * 5;
-      tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(${tabletRotY}deg) rotateX(${tabletRotX}deg) translateZ(30px)`;
+      if (isMobile) {
+        // Mobile: Subtle floating without jumping
+        const tabletY = Math.sin(scrollY * 0.005) * 6;
+        tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(10deg) rotateX(6deg)`;
+      } else {
+        // Desktop: Dynamic parallax breathing float
+        const tabletY = Math.sin(scrollY * 0.004) * 14 + (scrollY * 0.12);
+        const tabletRotY = 16 - Math.sin(scrollY * 0.003) * 6;
+        const tabletRotX = 8 + Math.cos(scrollY * 0.003) * 5;
+        tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(${tabletRotY}deg) rotateX(${tabletRotX}deg) translateZ(30px)`;
+      }
     }
 
-    // 2. Phone motion: Sits cleanly beside tablet at start, then glides down with scroll!
+    // 2. Phone motion: On desktop, glides down with scroll; On mobile, stays anchored safely
     if (phone) {
-      // Start translating down only when scrolling reaches/passes the side-screen area
-      const startOffset = Math.max(0, sideScreenTop - 40);
-      const relativeScroll = Math.max(0, scrollY - startOffset);
-      targetPhoneY = relativeScroll * 0.94;
-      
-      // Fluid spring lerp (0.082 damping factor for zero jitter, maximum silky smoothness)
-      const diff = targetPhoneY - currentPhoneY;
-      currentPhoneY += diff * 0.082;
-      phoneVelocity = diff;
+      if (isMobile) {
+        // MOBILE SAFE MODE: Phone stays cleanly in its mockup box, gentle 3D tilt, NEVER overlaps text!
+        const phoneFloat = Math.cos(scrollY * 0.005) * 8;
+        phone.style.transform = `translate3d(0, ${phoneFloat}px, 0) rotateX(8deg) rotateY(-10deg) rotateZ(0deg)`;
+      } else {
+        // DESKTOP MODE: Sits cleanly beside tablet, then glides down smoothly in its side column
+        const startOffset = Math.max(0, sideScreenTop - 40);
+        const relativeScroll = Math.max(0, scrollY - startOffset);
+        targetPhoneY = relativeScroll * 0.94;
+        
+        // Fluid spring lerp (0.082 damping factor for zero jitter)
+        const diff = targetPhoneY - currentPhoneY;
+        currentPhoneY += diff * 0.082;
+        phoneVelocity = diff;
 
-      // Dynamic 3D tilt reactive to scrolling velocity (striking and alive on all screens)
-      const targetTiltX = 10 + Math.max(-12, Math.min(16, phoneVelocity * 0.1));
-      const targetTiltY = -14 + Math.sin(currentPhoneY * 0.0022) * 6;
-      const targetTiltZ = Math.max(-5, Math.min(5, -phoneVelocity * 0.035));
+        const targetTiltX = 10 + Math.max(-12, Math.min(16, phoneVelocity * 0.1));
+        const targetTiltY = -14 + Math.sin(currentPhoneY * 0.0022) * 6;
+        const targetTiltZ = Math.max(-5, Math.min(5, -phoneVelocity * 0.035));
 
-      currentTiltX += (targetTiltX - currentTiltX) * 0.1;
-      currentTiltY += (targetTiltY - currentTiltY) * 0.1;
-      currentTiltZ += (targetTiltZ - currentTiltZ) * 0.1;
+        currentTiltX += (targetTiltX - currentTiltX) * 0.1;
+        currentTiltY += (targetTiltY - currentTiltY) * 0.1;
+        currentTiltZ += (targetTiltZ - currentTiltZ) * 0.1;
 
-      phone.style.transform = `translate3d(0, ${currentPhoneY}px, 0) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg) rotateZ(${currentTiltZ}deg) translateZ(60px)`;
+        phone.style.transform = `translate3d(0, ${currentPhoneY}px, 0) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg) rotateZ(${currentTiltZ}deg) translateZ(60px)`;
+      }
     }
 
     requestAnimationFrame(animateDevices);
@@ -1568,3 +1590,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+})();

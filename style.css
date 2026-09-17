@@ -2940,46 +2940,40 @@ img {
   .hero-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
   }
 
   .hero-content {
-    display: contents;
-  }
-
-  .badges-row { order: 1; }
-  .hero-profile-badge { order: 2; }
-  .hero-titles { order: 3; }
-  .hero-subtitle { order: 4; }
-  
-  /* 3D Side Screen positioned prominently near the top of mobile screen */
-  .hero-side-screen {
-    order: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     width: 100%;
-    max-width: 360px;
-    height: 360px;
-    margin: 10px auto 15px;
-    perspective: 1200px;
   }
 
-  .live-typing-card { order: 6; }
-  .hero-buttons { order: 7; }
-  .hero-stats-grid { 
-    order: 8; 
-    grid-template-columns: repeat(2, 1fr);
+  /* 3D Side Screen positioned cleanly after hero content without any overlap */
+  .hero-side-screen {
+    width: 100%;
+    max-width: 350px;
+    height: 310px;
+    margin: 15px auto;
+    position: relative;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .device-tablet {
-    width: 255px;
-    height: 220px;
+    width: 220px;
+    height: 185px;
     left: 0;
-    top: 10px;
+    top: 15px;
   }
 
   .device-phone {
-    width: 160px;
-    height: 310px;
-    top: 35px;
+    width: 135px;
+    height: 265px;
+    top: 25px;
     right: 5px;
   }
 
@@ -2998,21 +2992,22 @@ img {
 
 @media (max-width: 480px) {
   .hero-side-screen {
-    max-width: 320px;
-    height: 340px;
+    max-width: 310px;
+    height: 270px;
+    margin: 10px auto;
   }
 
   .device-tablet {
-    width: 225px;
-    height: 200px;
+    width: 195px;
+    height: 160px;
     left: 0;
-    top: 5px;
+    top: 10px;
   }
 
   .device-phone {
-    width: 145px;
-    height: 285px;
-    top: 25px;
+    width: 125px;
+    height: 235px;
+    top: 18px;
     right: 0;
   }
 }
