@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: #030712; padding: 40px 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- INTERACTIVE MULTI-DEVICE WEB ARCHITECTURE DECK -->
+    <div class="web-showcase-wrapper" id="webDeckWrapper">
+      
+      <!-- Top Control Header -->
+      <div class="deck-top-bar">
+        <div class="deck-top-left">
+          <a href="https://al-baron-dyek.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-deck-launch" id="deckLaunchBtn">
+            <span>🚀 تشغيل الموقع الحقيقي</span>
+            <span class="launch-arrow">↗</span>
+          </a>
+          <span class="deck-power-badge">
+            <span class="ping-dot-emerald"></span>
+            <span>LIVE SYSTEM</span>
+          </span>
+        </div>
+
+        <div class="deck-top-right">
+          <span class="deck-site-category" id="deckCategoryBadge">أزياء رجالية رسمية • فاخرة</span>
+          <span class="deck-brand-name" id="deckBrandHeader">البارون للأزياء</span>
+        </div>
+      </div>
+
+      <!-- Multi-Device Grid -->
+      <div class="deck-devices-grid">
+        
+        <!-- Left: Smartphone Frame -->
+        <div class="deck-col-phone">
+          <div class="phone-mockup-wrap">
+            <div class="deck-phone-shell">
+              <div class="phone-island">
+                <span class="island-camera"></span>
+              </div>
+              <div class="phone-screen-area">
+                <img src="showcase/baron-mobile.png" alt="نسخة الجوال" class="phone-live-img" id="deckPhoneImg">
+                <div class="phone-screen-footer">
+                  <span class="phone-engine-text" id="deckPhoneEngine">📱 Luxury Checkout Engine</span>
+                  <span class="phone-location-text" id="deckPhoneLoc">● تفصيل حسب القياس • شحن فوري</span>
+                </div>
+              </div>
+              <div class="phone-home-indicator"></div>
+            </div>
+          </div>
+
+          <!-- Quick Info Pill Card -->
+          <div class="phone-info-card">
+            <div class="info-card-header">
+              <span class="info-site-name" id="deckInfoName">البارون للأزياء</span>
+              <span class="info-badge-ux">✓ Fast UX</span>
+            </div>
+            <p class="info-card-desc" id="deckInfoDesc">
+              تشكيلة راقية من البدلات الرجالية والعصرية المصممة بعناية فائقة لتمنحك حضوراً يفيض بالثقة والهيبة في كل مناسبة.
+            </p>
+          </div>
+        </div>
+
+        <!-- Center: Laptop Display + Touch Deck -->
+        <div class="deck-col-laptop">
+          
+          <!-- Laptop Screen -->
+          <div class="laptop-screen-shell">
+            <div class="laptop-notch">
+              <span class="laptop-cam-dot"></span>
+            </div>
+            
+            <!-- Browser Bar -->
+            <div class="laptop-browser-bar">
+              <div class="browser-window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="browser-url-pill">
+                <span class="url-lock">🔒</span>
+                <span class="url-text" id="deckUrlText">https://al-baron-dyek.vercel.app/</span>
+              </div>
+              <div class="browser-live-status">
+                <span class="live-dot-ping"></span>
+                <span>LIVE 99+</span>
+              </div>
+            </div>
+
+            <!-- Display Screen with Screenshot -->
+            <a href="https://al-baron-dyek.vercel.app/" target="_blank" rel="noopener noreferrer" class="laptop-display-link" id="deckDisplayLink" title="انقر لفتح الموقع الحقيقي">
+              <img src="showcase/baron-desktop.png" alt="معاينة سطح المكتب" class="laptop-live-img" id="deckDesktopImg">
+              <div class="laptop-hover-launch">
+                <span class="hover-launch-chip">
+                  <span>🚀 انقر لتشغيل الموقع الحقيقي في لسان جديد</span>
+                  <span>↗</span>
+                </span>
+              </div>
+              <div class="laptop-screen-caption">
+                <div class="caption-texts">
+                  <h4 class="caption-title" id="deckCaptionTitle">أناقة بلا حدود مع البارون</h4>
+                  <p class="caption-sub" id="deckCaptionSub">⭐ تشكيلة راقية من البدلات الرجالية والعصرية</p>
+                </div>
+                <div class="caption-badge" id="deckCaptionBadge">
+                  <span>أقمشة صوف إيطالية 100%</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- MacBook Pro Touch Deck (Keyboard & Switcher) -->
+          <div class="touch-deck-keyboard">
+            <div class="touch-deck-header">
+              <span class="deck-title-text">⌨️ MacBook Pro Touch Deck (3 Core Live Platforms)</span>
+              <span class="deck-active-switch">● Active Fast Switch</span>
+            </div>
+
+            <!-- 3 Channel Buttons (F1, F2, F3) -->
+            <div class="touch-deck-buttons">
+              
+              <!-- F1: Al-Baron -->
+              <button class="deck-channel-btn active" data-site="baron" data-index="0" data-color="#eab308">
+                <div class="btn-top-row">
+                  <span class="channel-led" style="background: #eab308; box-shadow: 0 0 8px #eab308;"></span>
+                  <span class="channel-key">F1</span>
+                </div>
+                <div class="btn-info-block">
+                  <span class="channel-name">البارون للأزياء</span>
+                  <span class="channel-domain" style="color: #eab308;">al-baron-dyek.vercel.app</span>
+                </div>
+              </button>
+
+              <!-- F2: Balalem Co -->
+              <button class="deck-channel-btn" data-site="balalem" data-index="1" data-color="#00f2fe">
+                <div class="btn-top-row">
+                  <span class="channel-led" style="background: #00f2fe; box-shadow: 0 0 8px #00f2fe;"></span>
+                  <span class="channel-key">F2</span>
+                </div>
+                <div class="btn-info-block">
+                  <span class="channel-name">ستائر Balalemco</span>
+                  <span class="channel-domain" style="color: #00f2fe;">balalem-co.vercel.app</span>
+                </div>
+              </button>
+
+              <!-- F3: Click Cash -->
+              <button class="deck-channel-btn" data-site="clickcash" data-index="2" data-color="#10b981">
+                <div class="btn-top-row">
+                  <span class="channel-led" style="background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+                  <span class="channel-key">F3</span>
+                </div>
+                <div class="btn-info-block">
+                  <span class="channel-name">كليك كاشير</span>
+                  <span class="channel-domain" style="color: #10b981;">click-cash5.vercel.app</span>
+                </div>
+              </button>
+
+            </div>
+
+            <!-- Trackpad Element -->
+            <div class="touch-deck-trackpad">Force Touch Trackpad</div>
+          </div>
+
+        </div>
+
+        <!-- Right: iPad Pro 11" Tablet Frame -->
+        <div class="deck-col-tablet">
+          <a href="https://al-baron-dyek.vercel.app/" target="_blank" rel="noopener noreferrer" class="deck-tablet-shell" id="deckTabletLink" title="انقر لفتح نسخة التابلت">
+            <div class="tablet-header-bar">
+              <span class="tablet-model">iPad Pro 11"</span>
+              <span class="tablet-live">● 100% Tablet</span>
+            </div>
+            <div class="tablet-screen-area">
+              <img src="showcase/baron-desktop.png" alt="نسخة التابلت" class="tablet-live-img" id="deckTabletImg">
+            </div>
+            <div class="tablet-footer-bar" id="deckTabletFooter">
+              al-baron-dyek.vercel.app
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eng. Wesam Balalem | Curriculum Vitae</title>
+  <meta name="description" content="Curriculum Vitae of Eng. Wesam Balalem - Electrical Engineering Student, Solar Energy Specialist & Web Designer / Vibe Coder.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #0a2540;
+      --navy: #0f172a;
+      --accent: #0284c7;
+      --accent-light: #e0f2fe;
+      --text: #1e293b;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border: #cbd5e1;
+      --border-light: #e2e8f0;
+      --bg-page: #0b1120;
+      --paper-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-page);
+      color: var(--text);
+      padding: 30px 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Control Bar */
+    .top-actions-bar {
+      max-width: 900px;
+      margin: 0 auto 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      padding: 12px 24px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    .top-title-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .actions-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-act {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      color: #000;
+    }
+
+    .btn-print:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.35);
+    }
+
+    .btn-back {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* CV Paper Sheet (Exact A4 ratio aesthetic) */
+    .cv-paper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--paper-bg);
+      border-radius: 8px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    /* Top Color Bar */
+    .cv-paper::before {
+      content: '';
+      display: block;
+      height: 7px;
+      background: linear-gradient(90deg, #0284c7 0%, #0369a1 50%, #0a2540 100%);
+    }
+
+    /* HEADER SECTION */
+    .cv-header {
+      padding: 34px 44px 24px;
+      border-bottom: 2px solid var(--border-light);
+      display: grid;
+      grid-template-columns: 130px 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .avatar-box {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      background: #f1f5f9;
+      flex-shrink: 0;
+    }
+
+    .avatar-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .header-name {
+      font-family: 'Outfit', 'Inter', sans-serif;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #0a2540;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .header-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 4px;
+      margin-bottom: 12px;
+      letter-spacing: 0.2px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 6px 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .contact-item:hover {
+      color: var(--accent);
+    }
+
+    .contact-item svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Badges in Top Right (An-Najah & IEEE) */
+    .header-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+
+    .org-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border-light);
+      background: #f8fafc;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .badge-icon {
+      font-size: 16px;
+    }
+
+    .org-badge-ieee {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+      color: #0369a1;
+    }
+
+    /* MAIN BODY - 2 COLUMNS */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 36px;
+      padding: 34px 44px 40px;
+    }
+
+    /* SECTION STYLING */
+    .section-block {
+      margin-bottom: 26px;
+    }
+
+    .section-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .sec-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #0a2540;
+      border-bottom: 2px solid #0a2540;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* LEFT COLUMN (SIDEBAR) */
+    .cv-sidebar {
+      border-right: 1px solid var(--border-light);
+      padding-right: 28px;
+    }
+
+    .summary-p {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      text-align: justify;
+    }
+
+    /* Skill Sets */
+    .skill-subgroup {
+      margin-bottom: 12px;
+    }
+
+    .skill-subgroup:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-cat-name {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .pill {
+      font-size: 11px;
+      font-weight: 600;
+      background: #f1f5f9;
+      color: #334155;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-light);
+    }
+
+    .pill.featured {
+      background: #e0f2fe;
+      color: #0369a1;
+      border-color: #bae6fd;
+    }
+
+    /* Languages */
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      padding: 4px 0;
+      border-bottom: 1px dashed var(--border-light);
+      color: var(--text-muted);
+    }
+
+    .lang-row:last-child {
+      border-bottom: none;
+    }
+
+    .lang-lvl {
+      font-weight: 700;
+      color: #0284c7;
+    }
+
+    /* Education items in left column */
+    .edu-card {
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .edu-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-degree {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0a2540;
+      line-height: 1.25;
+    }
+
+    .edu-inst {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .edu-meta {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-light);
+      font-family: 'Outfit', sans-serif;
+      margin: 2px 0 4px;
+    }
+
+    .edu-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* RIGHT COLUMN (TIMELINE & PROJECTS) */
+    .cv-content {
+      padding-left: 4px;
+    }
+
+    /* Timeline style matching wesam-cv.jpg */
+    .timeline-node {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 20px;
+    }
+
+    .timeline-node:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-node::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 22px;
+      bottom: -10px;
+      width: 2px;
+      background: var(--border-light);
+    }
+
+    .timeline-node:last-child::before {
+      display: none;
+    }
+
+    .timeline-icon-dot {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #0284c7;
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 1.5px #0284c7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .node-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .node-role {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #0a2540;
+    }
+
+    .node-dates {
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      color: #0369a1;
+      background: #f0f9ff;
+      padding: 1px 7px;
+      border-radius: 4px;
+    }
+
+    .node-org {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .node-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .node-bullets {
+      margin-top: 5px;
+      padding-left: 16px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .node-bullets li {
+      margin-bottom: 3px;
+    }
+
+    /* Projects cards in right column */
+    .proj-item {
+      background: #f8fafc;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+
+    .proj-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .proj-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .proj-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0a2540;
+    }
+
+    .proj-tag {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    .proj-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    .cv-footer {
+      background: #f8fafc;
+      border-top: 1px solid var(--border-light);
+      padding: 12px 44px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Paper-only mode for embeds and screenshots */
+    body.paper-only, body.in-iframe {
+      background: #ffffff !important;
+      padding: 0 !important;
+      overflow-x: hidden !important;
+    }
+    html.paper-mode, body.paper-only {
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+    body.paper-only::-webkit-scrollbar, html.paper-mode::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+    body.paper-only .top-actions-bar, body.in-iframe .top-actions-bar {
+      display: none !important;
+    }
+    body.paper-only .cv-paper, body.in-iframe .cv-paper {
+      box-shadow: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      max-width: 100% !important;
+    }
+
+    /* PRINT STYLES (Clean A4 Paper with NO browser clutter) */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        color: #000 !important;
+      }
+
+      .top-actions-bar {
+        display: none !important;
+      }
+
+      .cv-paper {
+        max-width: 100% !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+
+      .cv-paper::before {
+        height: 5px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .cv-header {
+        padding: 20px 30px 15px !important;
+      }
+
+      .cv-body {
+        padding: 20px 30px 20px !important;
+        gap: 25px !important;
+      }
+
+      .pill.featured, .node-dates, .org-badge-ieee, .status-badge {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .cv-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 24px 20px;
+      }
+
+      .avatar-box {
+        margin: 0 auto;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+      }
+
+      .header-badges {
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .cv-body {
+        grid-template-columns: 1fr;
+        padding: 24px 20px;
+        gap: 24px;
+      }
+
+      .cv-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding-right: 0;
+        padding-bottom: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="top-actions-bar">
+    <div class="top-title-area">
+      <strong>Eng. Wesam Balalem — Official CV</strong>
+      <span class="status-badge">
+        <span class="status-dot"></span>
+        <span>ATS-Verified &amp; Print-Ready</span>
+      </span>
+    </div>
+
+    <div class="actions-buttons">
+      <button onclick="window.print()" class="btn-act btn-print">
+        <span>🖨️ Print / Save to PDF</span>
+      </button>
+      <a href="index.html" class="btn-act btn-back">
+        <span>Back to Website →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- A4 CV Sheet Container -->
+  <main class="cv-paper">
+    
+    <!-- HEADER -->
+    <header class="cv-header">
+      <!-- Portrait Photo -->
+      <div class="avatar-box">
+        <img src="wesam.jpg" alt="Eng. Wesam Balalem">
+      </div>
+
+      <!-- Identity & Contact Details -->
+      <div class="header-main">
+        <h1 class="header-name">Eng. Wesam Balalem</h1>
+        <div class="header-title">| Electrical Engineer &amp; Creative Web Designer (Vibe Coding)</div>
+
+        <div class="contact-grid">
+          <a href="mailto:hishamwesam13@gmail.com" class="contact-item">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>hishamwesam13@gmail.com</span>
+          </a>
+
+          <a href="https://wa.me/972593865751" target="_blank" class="contact-item">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.53 1.954.814 2.795.814 3.183 0 5.769-2.586 5.77-5.766.001-3.182-2.585-5.768-5.769-5.768zm0 10.375c-.754 0-1.634-.23-2.34-.65l-.167-.1-1.58.414.422-1.542-.11-.174c-.456-.728-.698-1.57-.697-2.457.001-2.43 1.977-4.407 4.409-4.407 2.431 0 4.408 1.977 4.409 4.407.001 2.432-1.976 4.409-4.409 4.409z"/></svg>
+            <span>+972 593 865 751</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/WesamBalalem" target="_blank" class="contact-item">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.44a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+            <span>in/WesamBalalem</span>
+          </a>
+
+          <a href="https://github.com/hishamwesam13" target="_blank" class="contact-item">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+            <span>github.com/hishamwesam13</span>
+          </a>
+
+          <div class="contact-item">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Palestine — Nablus</span>
+          </div>
+
+          <div class="contact-item">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>IEEE Student Member</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Right Badges -->
+      <div class="header-badges">
+        <div class="org-badge">
+          <span class="badge-icon">🏛️</span>
+          <span>An-Najah National University</span>
+        </div>
+        <div class="org-badge org-badge-ieee">
+          <span class="badge-icon">⚡</span>
+          <span>IEEE Student Branch</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BODY GRID -->
+    <div class="cv-body">
+      
+      <!-- LEFT SIDEBAR -->
+      <aside class="cv-sidebar">
+        
+        <!-- Profile Summary -->
+        <section class="section-block">
+          <h2 class="sec-title">Profile Summary</h2>
+          <p class="summary-p">
+            Passionate and analytical Electrical Engineering undergraduate at An-Najah National University, backed by practical technical certification in Solar PV and Electrical Systems from the Industrial Secondary School. Proven expertise in circuit analysis, load calculations, renewable energy setups, and modern AI-driven web development (Vibe Coding). Active IEEE member driven to engineer efficient, sustainable power and digital platforms.
+          </p>
+        </section>
+
+        <!-- Core Skills -->
+        <section class="section-block">
+          <h2 class="sec-title">Core Skills</h2>
+
+          <div class="skill-subgroup">
+            <div class="skill-cat-name">Electrical &amp; Solar PV</div>
+            <div class="skill-pills">
+              <span class="pill featured">Solar PV Systems</span>
+              <span class="pill featured">Load Calculations</span>
+              <span class="pill">Circuit Analysis</span>
+              <span class="pill">Inverters &amp; Batteries</span>
+              <span class="pill">Power Factor (PF)</span>
+              <span class="pill">Safety Standards</span>
+            </div>
+          </div>
+
+          <div class="skill-subgroup">
+            <div class="skill-cat-name">Web &amp; Vibe Coding</div>
+            <div class="skill-pills">
+              <span class="pill featured">Vibe Coding</span>
+              <span class="pill featured">UI / UX Design</span>
+              <span class="pill">HTML5 &amp; CSS3</span>
+              <span class="pill">JavaScript (Interactive)</span>
+              <span class="pill">Responsive Layouts</span>
+              <span class="pill">Git &amp; GitHub</span>
+            </div>
+          </div>
+
+          <div class="skill-subgroup">
+            <div class="skill-cat-name">Engineering Tools</div>
+            <div class="skill-pills">
+              <span class="pill">Proteus Simulation</span>
+              <span class="pill">MATLAB &amp; Simulink</span>
+              <span class="pill">AutoCAD (Electrical)</span>
+              <span class="pill">VS Code</span>
+            </div>
+          </div>
+
+          <div class="skill-subgroup">
+            <div class="skill-cat-name">Professional Competencies</div>
+            <div class="skill-pills">
+              <span class="pill">Analytical Problem Solving</span>
+              <span class="pill">Project Management</span>
+              <span class="pill">Team Collaboration</span>
+              <span class="pill">Fast Technology Adoption</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="section-block">
+          <h2 class="sec-title">Languages</h2>
+          <div class="lang-row">
+            <span>Arabic</span>
+            <span class="lang-lvl">Native Proficiency</span>
+          </div>
+          <div class="lang-row">
+            <span>English</span>
+            <span class="lang-lvl">Professional / Technical</span>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section-block">
+          <h2 class="sec-title">Education</h2>
+
+          <div class="edu-card">
+            <div class="edu-degree">B.Sc. in Electrical Engineering</div>
+            <div class="edu-inst">An-Najah National University</div>
+            <div class="edu-meta">2024 – 2029 (Expected) • Nablus, Palestine</div>
+            <p class="edu-desc">
+              Focus on Circuit Analysis, Power Systems, Renewable Energy Engineering, Control Systems &amp; Smart Grid technology.
+            </p>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-degree">Industrial Secondary School Diploma</div>
+            <div class="edu-inst">Nablus Industrial Secondary School</div>
+            <div class="edu-meta">2022 – 2024 (Graduated with Honors)</div>
+            <p class="edu-desc">
+              Specialized in Solar PV Systems and Industrial Electrical Installations. Intensive hands-on field practice in PV wiring, panel mounting, and inverter operations.
+            </p>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- RIGHT MAIN COLUMN -->
+      <section class="cv-content">
+        
+        <!-- Experience / Practical Timeline -->
+        <div class="section-block">
+          <h2 class="sec-title">Experience &amp; Practical Timeline</h2>
+
+          <!-- Timeline item 1: IEEE Student Branch -->
+          <div class="timeline-node">
+            <div class="timeline-icon-dot"></div>
+            <div class="node-header">
+              <span class="node-role">Active IEEE Student Member &amp; Contributor</span>
+              <span class="node-dates">2024 – Present</span>
+            </div>
+            <div class="node-org">IEEE Student Branch — An-Najah National University</div>
+            <p class="node-desc">
+              Engaging actively in technical seminars, power system symposiums, and green energy initiatives.
+            </p>
+            <ul class="node-bullets">
+              <li>Collaborate with engineering cohorts on renewable energy efficiency and smart technology talks.</li>
+              <li>Network with industry engineers to bridge academic concepts with field implementations.</li>
+            </ul>
+          </div>
+
+          <!-- Timeline item 2: Solar PV & Industrial Training -->
+          <div class="timeline-node">
+            <div class="timeline-icon-dot"></div>
+            <div class="node-header">
+              <span class="node-role">Solar PV &amp; Electrical Systems Field Trainee</span>
+              <span class="node-dates">2022 – 2024</span>
+            </div>
+            <div class="node-org">Industrial Secondary School Technical Program — Nablus</div>
+            <p class="node-desc">
+              Extensive hands-on training in designing, wiring, testing, and maintaining photovoltaic solar arrays and industrial control boards.
+            </p>
+            <ul class="node-bullets">
+              <li>Calculated peak power requirements, battery bank storage capacities, and conductor sizing for standalone and hybrid PV setups.</li>
+              <li>Performed routine troubleshooting on inverters, charge controllers, and main electrical distribution panels.</li>
+              <li>Enforced stringent workplace electrical safety and grounding protocols.</li>
+            </ul>
+          </div>
+
+          <!-- Timeline item 3: Web Designer & Vibe Coding -->
+          <div class="timeline-node">
+            <div class="timeline-icon-dot"></div>
+            <div class="node-header">
+              <span class="node-role">Creative Web Designer &amp; Vibe Coder</span>
+              <span class="node-dates">2023 – Present</span>
+            </div>
+            <div class="node-org">Freelance &amp; Independent Digital Architecture</div>
+            <p class="node-desc">
+              Leveraged AI-assisted development (Vibe Coding) to build ultra-responsive, visually captivating web interfaces.
+            </p>
+            <ul class="node-bullets">
+              <li>Engineered interactive engineering portfolios with smooth 60/120 FPS device animations and interactive PCB visualizers.</li>
+              <li>Designed fluid UI/UX layouts utilizing Dark Glassmorphism, tailored CSS variables, and high-performance JavaScript.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Featured Engineering Projects -->
+        <div class="section-block">
+          <h2 class="sec-title">Featured Projects</h2>
+
+          <div class="proj-item">
+            <div class="proj-head">
+              <span class="proj-name">1. Hybrid Solar PV System Sizing &amp; Design</span>
+              <span class="proj-tag">Solar Energy</span>
+            </div>
+            <p class="proj-desc">
+              Conducted complete engineering calculations for a hybrid solar photovoltaic installation combining mono-crystalline PV modules, lithium storage, and a smart hybrid inverter. Designed to offset standard residential and commercial energy consumption by up to 70%.
+            </p>
+          </div>
+
+          <div class="proj-item">
+            <div class="proj-head">
+              <span class="proj-name">2. 3D Interactive Engineering Portfolio</span>
+              <span class="proj-tag">Web &amp; Vibe Coding</span>
+            </div>
+            <p class="proj-desc">
+              Developed a modern web platform integrating dynamic 3D tablet and smartphone mockups with physics-based lerp scroll tracking, an interactive HTML5 circuit canvas, full bilingual Arabic/English engine, and an encrypted administrative backend.
+            </p>
+          </div>
+
+          <div class="proj-item">
+            <div class="proj-head">
+              <span class="proj-name">3. Overvoltage &amp; Overcurrent Protection Circuit</span>
+              <span class="proj-tag">Circuits &amp; Simulation</span>
+            </div>
+            <p class="proj-desc">
+              Engineered and simulated a responsive protection module in Proteus utilizing relays and sensing comparators to safeguard sensitive loads from line voltage transients with rapid automated cutoff and LED telemetry.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- IEEE & Professional Activities -->
+        <div class="section-block">
+          <h2 class="sec-title">Professional Memberships &amp; Affiliations</h2>
+          <div class="proj-item" style="background: #f0fdf4; border-color: #bbf7d0;">
+            <div class="proj-head">
+              <strong style="color: #166534; font-size: 12.5px;">IEEE — Institute of Electrical and Electronics Engineers</strong>
+              <span class="proj-tag" style="background: #dcfce7; color: #15803d;">Member</span>
+            </div>
+            <p class="proj-desc" style="color: #166534; margin-top: 4px;">
+              Active student member at the An-Najah National University IEEE Student Branch. Committed to continuous professional development, participating in engineering summits, technological symposiums, and clean energy innovation workshops.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="cv-footer">
+      <span>Official Curriculum Vitae — Eng. Wesam Balalem • Nablus, Palestine</span>
+      <span>Updated for Academic &amp; Professional Season 2026</span>
+    </footer>
+
+  </main>
+
+  <script>
+    if (window.self !== window.top || new URLSearchParams(window.location.search).has('paper')) {
+      document.body.classList.add('paper-only');
+      document.documentElement.classList.add('paper-mode');
+    }
+  </script>
+</body>
+</html>

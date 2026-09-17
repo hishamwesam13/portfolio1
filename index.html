@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المهندس وسام بلالم | هندسة كهربائية وتصميم مواقع Vibe Coding</title>
+  <meta name="description" content="البورتفوليو الرسمي للمهندس وسام بلالم - طالب بكالوريوس هندسة كهربائية بجامعة النجاح الوطنية، خبير طاقة شمسية ومتجددة، ومصمم مواقع ومطور Vibe Coding.">
+  
+  <!-- Favicon & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Electric Circuits & Particles Canvas Background -->
+  <canvas id="circuitCanvas"></canvas>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow cyan-glow"></div>
+  <div class="ambient-glow purple-glow"></div>
+  <div class="ambient-glow gold-glow"></div>
+
+
+
+  <!-- Navigation Bar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar glass-nav">
+      
+      <!-- Profile Header Identical to snippet requested -->
+      <a href="#hero" class="nav-brand group" data-cursor="true">
+        <div class="avatar-ring">
+          <img src="wesam.jpg" alt="المهندس وسام بلالم" class="brand-avatar" loading="eager">
+        </div>
+        <div class="brand-meta text-right">
+          <div class="brand-name-wrap">
+            <span class="brand-name">م. وسام بلالم</span>
+            <!-- Palestine Flag SVG (Secret 3-Click Admin Trigger) -->
+            <svg class="flag-svg secret-trigger" id="palestineSecretTrigger" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" aria-label="علم فلسطين" title="فلسطين">
+              <rect width="600" height="100" fill="#000000"></rect>
+              <rect y="100" width="600" height="100" fill="#FFFFFF"></rect>
+              <rect y="200" width="600" height="100" fill="#007A3D"></rect>
+              <polygon points="0,0 200,150 0,300" fill="#E4312b"></polygon>
+            </svg>
+          </div>
+          <span class="brand-title">بكالوريوس في الهندسة الكهربائية | Electrical & Web Designer</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        <a href="#hero" class="nav-link active">الرئيسية</a>
+        <a href="#about" class="nav-link">نبذة عني</a>
+        <a href="#skills" class="nav-link">المهارات والتخصص</a>
+        <a href="#cv" class="nav-link">السيرة الذاتية (CV)</a>
+        <a href="#projects" class="nav-link">المشاريع والأعمال</a>
+        <a href="#contact" class="nav-link">تواصل معي</a>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="nav-actions">
+        <button id="langToggle" class="btn-lang" aria-label="تبديل اللغة / Switch Language" title="English / العربية">
+          <span class="lang-icon">🌐</span>
+          <span id="langLabel">English</span>
+        </button>
+        <a href="https://www.linkedin.com/in/WesamBalalem" target="_blank" rel="noopener noreferrer" class="btn-icon nav-social-btn" aria-label="LinkedIn" title="LinkedIn: WesamBalalem">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.44a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+        </a>
+        <a href="https://github.com/hishamwesam13" target="_blank" rel="noopener noreferrer" class="btn-icon nav-social-btn" aria-label="GitHub" title="GitHub: hishamwesam13">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        </a>
+        <a href="https://wa.me/972593865751?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D9%88%D8%B3%D8%A7%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83" target="_blank" rel="noopener noreferrer" class="btn-nav-wa" title="واتساب مباشر">
+          <span class="pulse-emerald"></span>
+          <span class="wa-nav-text">واتساب</span>
+        </a>
+        <button id="themeToggle" class="btn-icon" aria-label="تبديل المظهر" title="تبديل المظهر">
+          <span id="themeIcon">☀️</span>
+        </button>
+        <button id="mobileMenuBtn" class="mobile-toggle" aria-label="القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Container -->
+  <main class="site-main">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="section hero-section">
+      <div class="container hero-container">
+        
+        <div class="hero-content">
+          
+          <!-- Top Badges Row -->
+          <div class="badges-row">
+            <div class="badge-status glass-badge">
+              <span class="ping-dot"></span>
+              <span>متاح للمشاريع والحلول الهندسية والمنصات الذكية</span>
+            </div>
+            
+            <div class="badge-location glass-badge">
+              <svg class="flag-svg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" aria-label="علم فلسطين">
+                <rect width="600" height="100" fill="#000000"></rect>
+                <rect y="100" width="600" height="100" fill="#FFFFFF"></rect>
+                <rect y="200" width="600" height="100" fill="#007A3D"></rect>
+                <polygon points="0,0 200,150 0,300" fill="#E4312b"></polygon>
+              </svg>
+              <span>فلسطين — نابلس</span>
+            </div>
+
+            <div class="badge-ieee glass-badge">
+              <span class="sparkle-icon">⚡</span>
+              <span>عضو فعال في جمعية IEEE</span>
+            </div>
+          </div>
+
+          <!-- Hero Headings & Profile Badge -->
+          <div class="hero-profile-badge">
+            <div class="hero-avatar-wrap">
+              <img src="wesam.jpg" alt="المهندس وسام بلالم" class="hero-avatar-img">
+              <span class="hero-avatar-status" title="متاح للعمل والمشاريع"></span>
+            </div>
+            <div class="hero-profile-info">
+              <span class="hero-profile-role">مهندس كهربائي | Electrical Engineer</span>
+              <span class="hero-profile-uni">جامعة النجاح الوطنية • نابلس 🇵🇸</span>
+            </div>
+          </div>
+
+          <div class="hero-titles">
+            <h1 class="hero-name">
+              <span class="block-ar">المهندس وسام بلالم</span>
+              <span class="block-en">Eng. Wesam Balalem</span>
+            </h1>
+          </div>
+
+          <!-- Subtitle -->
+          <div class="hero-subtitle">
+            طالب هندسة كهربائية في جامعة النجاح • خبير طاقة شمسية ومتجددة • مصمم مواقع وخبير Vibe Coding
+          </div>
+
+          <!-- Live Interactive Typing Box (Exact request) -->
+          <div class="live-typing-card glass-card">
+            <div class="live-card-header">
+              <span class="live-title">
+                <span class="live-pulse"></span>
+                <span>نبذة هندسية وتنفيذية موثقة</span>
+              </span>
+              <span class="live-stream-badge">● بث حي تفاعلي</span>
+            </div>
+            <p class="live-typing-text" id="typewriterParagraph">
+              <span id="typewriterContent"></span><span class="typing-cursor"></span>
+            </p>
+          </div>
+
+          <!-- Action Buttons (CTA) -->
+          <div class="hero-buttons">
+            <a href="#projects" class="btn-primary" data-cursor="true">
+              <span>استكشف أبرز الأعمال والمشاريع</span>
+              <span class="btn-icon-right">⚡</span>
+            </a>
+            
+            <div class="btn-group-secondary">
+              <a href="#cv" class="btn-glass" data-cursor="true">
+                <span>📄</span>
+                <span>السيرة الذاتية (CV)</span>
+              </a>
+              
+              <a href="https://wa.me/972593865751?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D9%88%D8%B3%D8%A7%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83" target="_blank" rel="noopener noreferrer" class="btn-glass btn-wa" data-cursor="true">
+                <span class="pulse-emerald-sm"></span>
+                <span>واتساب مباشر</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Stats Counters -->
+          <div class="hero-stats-grid">
+            <div class="glass-card stat-box">
+              <div class="stat-number">2024–2029</div>
+              <div class="stat-label">بكالوريوس هندسة كهربائية (النجاح)</div>
+            </div>
+            
+            <div class="glass-card stat-box">
+              <div class="stat-number">2022–2024</div>
+              <div class="stat-label">المدرسة الصناعية & طاقة شمسية</div>
+            </div>
+            
+            <div class="glass-card stat-box">
+              <div class="stat-number">IEEE</div>
+              <div class="stat-label">عضوية فعالة ومشاريع ابتكارية</div>
+            </div>
+            
+            <div class="glass-card stat-box">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Vibe Coding ودقة هندسية</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Left Column: The Interactive 3D Side Screen (Tablet & Phone Mockups) -->
+        <div class="hero-side-screen" id="heroSideScreen">
+          <div class="side-screen-wrapper">
+            
+            <!-- Floating Tech Tablet / Code Monitor -->
+            <div class="device-tablet" id="deviceTablet">
+              <div class="device-tablet-inner">
+                <div class="tablet-header">
+                  <div class="window-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                  </div>
+                  <div class="tablet-filename">balalem-systems.ts</div>
+                  <div class="tablet-badge">⚡ Solar & Grid Live</div>
+                </div>
+                <div class="tablet-screen">
+                  <div class="code-line"><span class="c-keyword">const</span> <span class="c-obj">engineer</span> = {</div>
+                  <div class="code-line indent-1"><span class="c-key">architect:</span> <span class="c-str">'Eng. Wesam Balalem'</span>,</div>
+                  <div class="code-line indent-1"><span class="c-key">discipline:</span> <span class="c-str">'Electrical Engineering & Solar PV'</span>,</div>
+                  <div class="code-line indent-1"><span class="c-key">university:</span> <span class="c-str">'An-Najah National University'</span>,</div>
+                  <div class="code-line indent-1"><span class="c-key">ieeeMember:</span> <span class="c-bool">true</span>,</div>
+                  <div class="code-line indent-1"><span class="c-key">specialty:</span> <span class="c-str">'Vibe Coding & UI Architect'</span>,</div>
+                  <div class="code-line indent-1"><span class="c-key">linkedin:</span> <a href="https://www.linkedin.com/in/WesamBalalem" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;"><span class="c-str">'in/WesamBalalem'</span></a>,</div>
+                  <div class="code-line indent-1"><span class="c-key">github:</span> <a href="https://github.com/hishamwesam13" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;"><span class="c-str">'hishamwesam13'</span></a>,</div>
+                  <div class="code-line indent-1"><span class="c-key">gridEfficiency:</span> <span class="c-str">'99.8%'</span>,</div>
+                  <div class="code-line indent-1"><span class="c-key">solarCapacity:</span> <span class="c-num">500</span> <span class="c-comment">/* kWp Hybrid Systems */</span></div>
+                  <div class="code-line">};</div>
+                  <div class="tablet-status-pill">
+                    <span class="status-indicator"></span>
+                    <span>Palestine • Nablus (Active)</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Circuit Connector Nodes -->
+              <div class="circuit-node node-t1"></div>
+              <div class="circuit-node node-t2"></div>
+              <div class="circuit-line line-t1"></div>
+            </div>
+
+            <!-- Floating Sleek Smartphone -->
+            <div class="device-phone" id="devicePhone">
+              <div class="device-phone-inner">
+                <div class="phone-notch">
+                  <div class="dynamic-island">
+                    <span class="sensor"></span>
+                    <span class="camera"></span>
+                  </div>
+                </div>
+                <div class="phone-screen">
+                  <div class="phone-header-bar">
+                    <span class="phone-clock" id="phoneClock">12:30</span>
+                    <div class="phone-icons">
+                      <span class="signal-icon">⚡</span>
+                      <span class="battery-icon">100%</span>
+                    </div>
+                  </div>
+                  
+                  <div class="phone-widget">
+                    <div class="widget-badge">
+                      <span class="pulse-dot"></span>
+                      <span>IEEE STUDENT BRANCH</span>
+                    </div>
+                    <div class="widget-title">Eng. Wesam Balalem</div>
+                    <div class="widget-sub">Electrical Engineering & Vibe Coding</div>
+                  </div>
+
+                  <div class="phone-card">
+                    <div class="phone-card-title">☀️ Solar Generation</div>
+                    <div class="phone-meter">
+                      <div class="meter-fill"></div>
+                    </div>
+                    <div class="meter-info">
+                      <span>Clean Energy</span>
+                      <span class="meter-val">12.4 kWh</span>
+                    </div>
+                  </div>
+
+                  <div class="phone-card mini">
+                    <div class="phone-chip">
+                      <span class="chip-icon">⚡</span>
+                      <span>Next-Gen UI Architecture</span>
+                    </div>
+                    <div class="phone-status">Online in Palestine 🇵🇸</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Phone Circuit Nodes -->
+              <div class="circuit-node node-p1"></div>
+              <div class="circuit-line line-p1"></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-sparkle">💡</span>
+            <span>الرؤية والمسار الهندسي</span>
+          </div>
+          <h2 class="section-title">شغف الهندسة الكهربائية وابتكار الويب الحديث</h2>
+          <p class="section-desc">أجمع بين المعرفة العميقة في الدوائر الكهربائية والطاقة الكهروضوئية المتجددة، وبين الفن الرقمي لتصميم وبناء واجهات الويب العصرية بتقنيات الـ Vibe Coding.</p>
+        </div>
+
+        <div class="about-grid">
+          
+          <div class="about-card glass-card">
+            <div class="about-card-icon solar-icon">☀️</div>
+            <h3 class="about-card-title">تأسيس وخبرة في الطاقة الشمسية (2022 – 2024)</h3>
+            <p class="about-card-text">
+              انطلقت مسيرتي من المدرسة الصناعية، حيث تعمقت عملياً في أنظمة الطاقة الشمسية الكهروضوئية (Solar PV)، تصميم الدوائر الميدانية، قياس الأحمال، وتطبيق معايير السلامة والتوزيع الكهربائي بكفاءة عالية.
+            </p>
+            <div class="card-tags">
+              <span class="tag-item">Solar PV Design</span>
+              <span class="tag-item">تحليل أحمال</span>
+              <span class="tag-item">المدرسة الصناعية</span>
+            </div>
+          </div>
+
+          <div class="about-card glass-card">
+            <div class="about-card-icon ee-icon">⚡</div>
+            <h3 class="about-card-title">جامعة النجاح الوطنية (2024 – 2029)</h3>
+            <p class="about-card-text">
+              أواصل دراستي الأكاديمية للحصول على بكالوريوس الهندسة الكهربائية في جامعة النجاح الوطنية العريقة في نابلس. أركز على شبكات الطاقة الذكية، الدوائر الإلكترونية، والتحكم الآلي.
+            </p>
+            <div class="card-tags">
+              <span class="tag-item">جامعة النجاح</span>
+              <span class="tag-item">هندسة كهربائية</span>
+              <span class="tag-item">Smart Grids</span>
+            </div>
+          </div>
+
+          <div class="about-card glass-card">
+            <div class="about-card-icon ieee-icon">🏆</div>
+            <h3 class="about-card-title">عضو فعال في جمعية IEEE العالمية</h3>
+            <p class="about-card-text">
+              مشارك نشط في أنشطة فرع جمعية مهندسي الكهرباء والإلكترونيات (IEEE Student Branch) في جامعة النجاح، ومتابع لأحدث المؤتمرات، الابتكارات الهندسية، والمسابقات التقنية.
+            </p>
+            <div class="card-tags">
+              <span class="tag-item">IEEE Member</span>
+              <span class="tag-item">Innovation</span>
+              <span class="tag-item">ورشات هندسية</span>
+            </div>
+          </div>
+
+          <div class="about-card glass-card">
+            <div class="about-card-icon web-icon">💻</div>
+            <h3 class="about-card-title">تصميم المواقع و Vibe Coding المتقدم</h3>
+            <p class="about-card-text">
+              مهارة رقمية استثنائية في تحويل الأفكار إلى منصات ويب تفاعلية فائقة السرعة والجمال، باستخدام فلسفة الـ Vibe Coding التي تدمج الذكاء الاصطناعي مع التصميم الهندسي الرصين.
+            </p>
+            <div class="card-tags">
+              <span class="tag-item">Vibe Coding</span>
+              <span class="tag-item">UI/UX Design</span>
+              <span class="tag-item">Modern Web</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-sparkle">🛠️</span>
+            <span>المهارات والأدوات</span>
+          </div>
+          <h2 class="section-title">الترسانة التقنية والهندسية</h2>
+          <p class="section-desc">مزيج متكامل من العلوم الهندسية الصارمة والأدوات الرقمية المتقدمة.</p>
+        </div>
+
+        <div class="skills-wrapper-grid">
+          
+          <!-- Electrical & Solar Column -->
+          <div class="skill-category glass-card">
+            <div class="category-header">
+              <span class="category-icon">⚡</span>
+              <div>
+                <h3 class="category-title">الهندسة الكهربائية والطاقة المتجددة</h3>
+                <span class="category-subtitle">Electrical & Solar Engineering</span>
+              </div>
+            </div>
+
+            <div class="skills-list">
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span>أنظمة الطاقة الشمسية الكهروضوئية (PV Solar Systems)</span>
+                  <span class="skill-percent">95%</span>
+                </div>
+                <div class="skill-progress"><div class="progress-fill fill-cyan" style="width: 95%;"></div></div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span>تحليل وتصميم الدوائر الكهربائية (Circuit Analysis)</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="skill-progress"><div class="progress-fill fill-cyan" style="width: 90%;"></div></div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span>برمجيات المحاكاة (MATLAB / Simulink / Proteus)</span>
+                  <span class="skill-percent">88%</span>
+                </div>
+                <div class="skill-progress"><div class="progress-fill fill-cyan" style="width: 88%;"></div></div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span>حساب الأحمال والتمديدات والسلامة المهنية</span>
+                  <span class="skill-percent">92%</span>
+                </div>
+                <div class="skill-progress"><div class="progress-fill fill-cyan" style="width: 92%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Design & Vibe Coding Column -->
+          <div class="skill-category glass-card">
+            <div class="category-header">
+              <span class="category-icon">💻</span>
+              <div>
+                <h3 class="category-title">تصميم وتطوير المواقع (Vibe Coding)</h3>
+                <span class="category-subtitle">Creative Web & Digital Architecture</span>
+              </div>
+            </div>
+
+            <div class="skills-list">
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span>Vibe Coding & AI-Driven Development</span>
+                  <span class="skill-percent">98%</span>
+                </div>
+                <div class="skill-progress"><div class="progress-fill fill-blue" style="width: 98%;"></div></div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span>تصميم واجهات المستخدم العصرية (Modern UI/UX Design)</span>
+                  <span class="skill-percent">95%</span>
+                </div>
+                <div class="skill-progress"><div class="progress-fill fill-blue" style="width: 95%;"></div></div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span>HTML5, Advanced CSS3, JavaScript التفاعلي</span>
+                  <span class="skill-percent">92%</span>
+                </div>
+                <div class="skill-progress"><div class="progress-fill fill-blue" style="width: 92%;"></div></div>
+              </div>
+
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span>تجاوب الشاشات والأداء السريع (Responsive & Speed Optimization)</span>
+                  <span class="skill-percent">96%</span>
+                </div>
+                <div class="skill-progress"><div class="progress-fill fill-blue" style="width: 96%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CV SECTION (Exact requested structure with Bachelor next to it) -->
+    <section id="cv" class="section cv-section">
+      <div class="container">
+        
+        <div class="cv-card-wrapper glass-card">
+          <div class="cv-grid">
+            
+            <!-- Left CV Preview Column -->
+            <div class="cv-col-preview">
+              <div class="cv-mockup-card" id="openCvModalBtn" data-cursor="true" title="انقر لمعاينة السيرة الذاتية">
+                <div class="cv-mockup-frame">
+                  <img src="wesam-cv-live.png?v=2026" alt="Official Curriculum Vitae — Eng. Wesam Balalem" class="cv-mockup-img" loading="eager">
+                  <div class="cv-hover-overlay">
+                    <span class="zoom-bubble">🔍</span>
+                    <span class="zoom-text">انقر للمعاينة بملء الشاشة</span>
+                  </div>
+                </div>
+                <div class="cv-status-row">
+                  <span class="cv-file-name">📄 Wesam_Balalem_CV.pdf</span>
+                  <span class="cv-badge-verified">
+                    <span class="ping-dot-emerald"></span>
+                    <span>Verified</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Action Buttons for CV -->
+              <div class="cv-action-buttons">
+                <button class="btn-cv-preview" id="previewCvBtn" data-cursor="true" style="flex: 1.2;">
+                  <span>معاينة الـ CV الرسمي (English)</span>
+                  <span>🔍</span>
+                </button>
+                <a href="cv.html" target="_blank" class="btn-cv-download" data-cursor="true" id="downloadCvBtn" style="flex: 1;">
+                  <span>طباعة وحفظ كـ PDF</span>
+                  <span>🖨️</span>
+                </a>
+              </div>
+              <p class="cv-note-edit">💡 يمكنك تحديث ملف السيرة الذاتية بسهولة في أي وقت مستقبلاً.</p>
+            </div>
+
+            <!-- Right Details Column (Exact user requirements) -->
+            <div class="cv-col-details">
+              
+              <div class="cv-details-header">
+                <div class="cv-loc-badge">
+                  <svg class="flag-svg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" aria-label="علم فلسطين">
+                    <rect width="600" height="100" fill="#000000"></rect>
+                    <rect y="100" width="600" height="100" fill="#FFFFFF"></rect>
+                    <rect y="200" width="600" height="100" fill="#007A3D"></rect>
+                    <polygon points="0,0 200,150 0,300" fill="#E4312b"></polygon>
+                  </svg>
+                  <span>فلسطين • نابلس</span>
+                </div>
+                <h3 class="cv-person-name">المهندس وسام بلالم</h3>
+                <p class="cv-person-sub">طالب بكالوريوس في الهندسة الكهربائية في جامعة النجاح ومصمم مواقع وخبير Vibe Coding</p>
+              </div>
+
+              <!-- Academic & Practical Cards Grid -->
+              <div class="cv-features-grid">
+                
+                <!-- Bachelor's Degree Card -->
+                <div class="cv-feature-box box-cyan">
+                  <div class="box-top">
+                    <span class="box-tag">🎓 التعليم الأكاديمي</span>
+                    <span class="box-period">2024 – 2029</span>
+                  </div>
+                  <div class="box-title">بكالوريوس في الهندسة الكهربائية</div>
+                  <p class="box-desc">جامعة النجاح الوطنية — دراسة تخصصية متعمقة في الدوائر، أنظمة القدرة، التحكم الآلي والشبكات الكهربائية.</p>
+                </div>
+
+                <!-- Industrial School & Solar Energy -->
+                <div class="cv-feature-box box-emerald">
+                  <div class="box-top">
+                    <span class="box-tag">☀️ الطاقة المتجددة</span>
+                    <span class="box-period">2022 – 2024</span>
+                  </div>
+                  <div class="box-title">المدرسة الصناعية & طاقة شمسية</div>
+                  <p class="box-desc">تأسيس مهني وخبرة عملية في تصميم وتركيب محطات الطاقة الشمسية وحسابات الأحمال وأنظمة التحويل.</p>
+                </div>
+
+                <!-- IEEE Membership -->
+                <div class="cv-feature-box box-amber">
+                  <div class="box-top">
+                    <span class="box-tag">🏆 منظمة عالمية</span>
+                    <span class="box-period">IEEE Member</span>
+                  </div>
+                  <div class="box-title">عضو فعال في جمعية IEEE</div>
+                  <p class="box-desc">فرع جامعة النجاح الطلابية، مشاركة في الندوات الهندسية والفعاليات التقنية ومواكبة معايير الهندسة الدولية.</p>
+                </div>
+
+                <!-- Vibe Coding & Web Design -->
+                <div class="cv-feature-box box-purple">
+                  <div class="box-top">
+                    <span class="box-tag">💻 خبرة تصميم المواقع</span>
+                    <span class="box-period">Vibe Coding</span>
+                  </div>
+                  <div class="box-title">تصميم وبناء المنصات والمواقع</div>
+                  <p class="box-desc">ابتكار واجهات مستخدم مذهلة، تطبيقات متجاوبة وسريعة، وإتقان تقنيات الـ Vibe Coding المعاصرة.</p>
+                </div>
+
+              </div>
+
+              <!-- Footer Contact Row inside CV card -->
+              <div class="cv-card-footer">
+                <div class="cv-email-info">
+                  <span>✉️ البريد المعتمد: </span>
+                  <a href="mailto:hishamwesam13@gmail.com" class="email-link">hishamwesam13@gmail.com</a>
+                </div>
+
+                <div class="cv-social-chips">
+                  <a href="https://www.linkedin.com/in/WesamBalalem" target="_blank" rel="noopener noreferrer" class="btn-cv-social" title="LinkedIn: WesamBalalem">
+                    <span>💼 LinkedIn</span>
+                  </a>
+                  <a href="https://github.com/hishamwesam13" target="_blank" rel="noopener noreferrer" class="btn-cv-social" title="GitHub: hishamwesam13">
+                    <span>💻 GitHub</span>
+                  </a>
+                </div>
+
+                <a href="https://wa.me/972593865751?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D9%88%D8%B3%D8%A7%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83" target="_blank" rel="noopener noreferrer" class="btn-wa-chip" data-cursor="true">
+                  <span>واتساب: </span>
+                  <span dir="ltr" class="wa-num">+972 593 865 751</span>
+                  <span>💬</span>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-sparkle">🚀</span>
+            <span>معرض الأعمال</span>
+          </div>
+          <h2 class="section-title">مشاريع هندسية وتصاميم مواقع مبتكرة</h2>
+        </div>
+
+        <!-- INTERACTIVE MULTI-DEVICE WEB ARCHITECTURE DECK -->
+        <div class="web-showcase-wrapper" id="webDeckWrapper">
+          
+          <!-- Top Control Header -->
+          <div class="deck-top-bar">
+            <div class="deck-top-left">
+              <a href="https://al-baron-dyek.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-deck-launch" id="deckLaunchBtn">
+                <span>🚀 تشغيل الموقع الحقيقي</span>
+                <span class="launch-arrow">↗</span>
+              </a>
+              <span class="deck-power-badge">
+                <span class="ping-dot-emerald"></span>
+                <span>LIVE SYSTEM</span>
+              </span>
+            </div>
+
+            <div class="deck-top-right">
+              <span class="deck-site-category" id="deckCategoryBadge">أزياء رجالية رسمية • فاخرة</span>
+              <span class="deck-brand-name" id="deckBrandHeader">البارون للأزياء</span>
+            </div>
+          </div>
+
+          <!-- Multi-Device Grid -->
+          <div class="deck-devices-grid">
+            
+            <!-- Left: Smartphone Frame -->
+            <div class="deck-col-phone">
+              <div class="phone-mockup-wrap">
+                <div class="deck-phone-shell">
+                  <div class="phone-island">
+                    <span class="island-camera"></span>
+                  </div>
+                  <div class="phone-screen-area">
+                    <img src="showcase/baron-mobile.png" alt="نسخة الجوال" class="phone-live-img" id="deckPhoneImg">
+                    <div class="phone-screen-footer">
+                      <span class="phone-engine-text" id="deckPhoneEngine">📱 Luxury Checkout Engine</span>
+                      <span class="phone-location-text" id="deckPhoneLoc">● تفصيل حسب القياس • شحن فوري</span>
+                    </div>
+                  </div>
+                  <div class="phone-home-indicator"></div>
+                </div>
+              </div>
+
+              <!-- Quick Info Pill Card -->
+              <div class="phone-info-card">
+                <div class="info-card-header">
+                  <span class="info-site-name" id="deckInfoName">البارون للأزياء</span>
+                  <span class="info-badge-ux">✓ Fast UX</span>
+                </div>
+                <p class="info-card-desc" id="deckInfoDesc">
+                  تشكيلة راقية من البدلات الرجالية والعصرية المصممة بعناية فائقة لتمنحك حضوراً يفيض بالثقة والهيبة في كل مناسبة.
+                </p>
+              </div>
+            </div>
+
+            <!-- Center: Laptop Display + Touch Deck -->
+            <div class="deck-col-laptop">
+              
+              <!-- Laptop Screen -->
+              <div class="laptop-screen-shell">
+                <div class="laptop-notch">
+                  <span class="laptop-cam-dot"></span>
+                </div>
+                
+                <!-- Browser Bar -->
+                <div class="laptop-browser-bar">
+                  <div class="browser-window-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                  </div>
+                  <div class="browser-url-pill">
+                    <span class="url-lock">🔒</span>
+                    <span class="url-text" id="deckUrlText">https://al-baron-dyek.vercel.app/</span>
+                  </div>
+                  <div class="browser-live-status">
+                    <span class="live-dot-ping"></span>
+                    <span>LIVE 99+</span>
+                  </div>
+                </div>
+
+                <!-- Display Screen with Screenshot -->
+                <a href="https://al-baron-dyek.vercel.app/" target="_blank" rel="noopener noreferrer" class="laptop-display-link" id="deckDisplayLink" title="انقر لفتح الموقع الحقيقي">
+                  <img src="showcase/baron-desktop.png" alt="معاينة سطح المكتب" class="laptop-live-img" id="deckDesktopImg">
+                  <div class="laptop-hover-launch">
+                    <span class="hover-launch-chip">
+                      <span>🚀 انقر لتشغيل الموقع الحقيقي في لسان جديد</span>
+                      <span>↗</span>
+                    </span>
+                  </div>
+                  <div class="laptop-screen-caption">
+                    <div class="caption-texts">
+                      <h4 class="caption-title" id="deckCaptionTitle">أناقة بلا حدود مع البارون</h4>
+                      <p class="caption-sub" id="deckCaptionSub">⭐ تشكيلة راقية من البدلات الرجالية والعصرية</p>
+                    </div>
+                    <div class="caption-badge" id="deckCaptionBadge">
+                      <span>أقمشة صوف إيطالية 100%</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- MacBook Pro Touch Deck (Keyboard & Switcher) -->
+              <div class="touch-deck-keyboard">
+                <div class="touch-deck-header">
+                  <span class="deck-title-text">⌨️ MacBook Pro Touch Deck (3 Core Live Platforms)</span>
+                  <span class="deck-active-switch">● Active Fast Switch</span>
+                </div>
+
+                <!-- 3 Channel Buttons (F1, F2, F3) -->
+                <div class="touch-deck-buttons">
+                  
+                  <!-- F1: Al-Baron -->
+                  <button class="deck-channel-btn active" data-site="baron" data-index="0" data-color="#eab308">
+                    <div class="btn-top-row">
+                      <span class="channel-led" style="background: #eab308; box-shadow: 0 0 8px #eab308;"></span>
+                      <span class="channel-key">F1</span>
+                    </div>
+                    <div class="btn-info-block">
+                      <span class="channel-name">البارون للأزياء</span>
+                      <span class="channel-domain" style="color: #eab308;">al-baron-dyek.vercel.app</span>
+                    </div>
+                  </button>
+
+                  <!-- F2: Balalem Co -->
+                  <button class="deck-channel-btn" data-site="balalem" data-index="1" data-color="#00f2fe">
+                    <div class="btn-top-row">
+                      <span class="channel-led" style="background: #00f2fe; box-shadow: 0 0 8px #00f2fe;"></span>
+                      <span class="channel-key">F2</span>
+                    </div>
+                    <div class="btn-info-block">
+                      <span class="channel-name">ستائر Balalemco</span>
+                      <span class="channel-domain" style="color: #00f2fe;">balalem-co.vercel.app</span>
+                    </div>
+                  </button>
+
+                  <!-- F3: Click Cash -->
+                  <button class="deck-channel-btn" data-site="clickcash" data-index="2" data-color="#10b981">
+                    <div class="btn-top-row">
+                      <span class="channel-led" style="background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+                      <span class="channel-key">F3</span>
+                    </div>
+                    <div class="btn-info-block">
+                      <span class="channel-name">كليك كاشير</span>
+                      <span class="channel-domain" style="color: #10b981;">click-cash5.vercel.app</span>
+                    </div>
+                  </button>
+
+                </div>
+
+                <!-- Trackpad Element -->
+                <div class="touch-deck-trackpad">Force Touch Trackpad</div>
+              </div>
+
+            </div>
+
+            <!-- Right: iPad Pro 11" Tablet Frame -->
+            <div class="deck-col-tablet">
+              <a href="https://al-baron-dyek.vercel.app/" target="_blank" rel="noopener noreferrer" class="deck-tablet-shell" id="deckTabletLink" title="انقر لفتح نسخة التابلت">
+                <div class="tablet-header-bar">
+                  <span class="tablet-model">iPad Pro 11"</span>
+                  <span class="tablet-live">● 100% Tablet</span>
+                </div>
+                <div class="tablet-screen-area">
+                  <img src="showcase/baron-desktop.png" alt="نسخة التابلت" class="tablet-live-img" id="deckTabletImg">
+                </div>
+                <div class="tablet-footer-bar" id="deckTabletFooter">
+                  al-baron-dyek.vercel.app
+                </div>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-controls">
+          <button class="filter-btn active" data-filter="all">جميع المشاريع</button>
+          <button class="filter-btn" data-filter="solar">طاقة متجددة وشمسية</button>
+          <button class="filter-btn" data-filter="electrical">هندسة كهربائية ودوائر</button>
+          <button class="filter-btn" data-filter="web">تصميم مواقع و Vibe Coding</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+          
+          <!-- Project 1: Solar Grid -->
+          <div class="project-card glass-card" data-category="solar">
+            <div class="project-preview solar-pv-bg">
+              <div class="preview-overlay">
+                <span class="preview-tag">☀️ طاقة شمسية</span>
+                <span class="preview-status">محاكاة وتصميم معتمد</span>
+              </div>
+              <div class="preview-icon">⚡</div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>Solar PV</span>
+                <span>Inverter Sizing</span>
+                <span>ROI Study</span>
+              </div>
+              <h3 class="project-title">تصميم نظام طاقة شمسية هجين (Hybrid Solar System)</h3>
+              <p class="project-desc">دراسة وحسابات متكاملة لربط الألواح الكهروضوئية مع بطاريات الليثيوم والشبكة المحلية لتقليل استهلاك الطاقة بنسبة 70%.</p>
+              <div class="project-footer">
+                <span class="project-meta">المدرسة الصناعية & النجاح</span>
+                <a href="#contact" class="project-link">طلب دراسة مماثلة ←</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Vibe Coding Website -->
+          <div class="project-card glass-card" data-category="web">
+            <div class="project-preview vibe-coding-bg">
+              <div class="preview-overlay">
+                <span class="preview-tag">💻 Vibe Coding</span>
+                <span class="preview-status">منصة تفاعلية حية</span>
+              </div>
+              <div class="preview-icon">🌐</div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>Vibe Coding</span>
+                <span>UI/UX</span>
+                <span>Dark Glassmorphism</span>
+              </div>
+              <h3 class="project-title">منصة بورتفوليو هندسية تفاعلية بـ 3D Parallax</h3>
+              <p class="project-desc">بناء واجهة بورتفوليو فائقة السرعة مع مجسمات تفاعلية للأجهزة ثلاثية الأبعاد وخلفية شبكات الدوائر المتحركة.</p>
+              <div class="project-footer">
+                <span class="project-meta">أحدث تقنيات الويب</span>
+                <a href="#hero" class="project-link">معاينة الواجهة الحالية ↑</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Electrical Circuit Simulation -->
+          <div class="project-card glass-card" data-category="electrical">
+            <div class="project-preview circuit-bg">
+              <div class="preview-overlay">
+                <span class="preview-tag">⚡ دوائر وتحكم</span>
+                <span class="preview-status">محاكاة رقمية</span>
+              </div>
+              <div class="preview-icon">🔬</div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>Proteus</span>
+                <span>Circuit Analysis</span>
+                <span>Sensor Interfacing</span>
+              </div>
+              <h3 class="project-title">دائرة قياس وحماية كهربائية للجهد والتيار الزائد</h3>
+              <p class="project-desc">تصميم دائرة إلكترونية لحماية الأجهزة الحساسة من تذبذبات التيار مع فصل تلقائي وإشارات ضوئية وصوتية ذكية.</p>
+              <div class="project-footer">
+                <span class="project-meta">مختبرات جامعة النجاح</span>
+                <a href="#contact" class="project-link">استفسر عن المشروع ←</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: IEEE Workshop & Clean Tech -->
+          <div class="project-card glass-card" data-category="solar">
+            <div class="project-preview ieee-bg">
+              <div class="preview-overlay">
+                <span class="preview-tag">🏆 IEEE Event</span>
+                <span class="preview-status">مشاركة فاعلة</span>
+              </div>
+              <div class="preview-icon">☀️</div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span>IEEE Branch</span>
+                <span>Clean Energy</span>
+                <span>Future Tech</span>
+              </div>
+              <h3 class="project-title">مبادرة كفاءة الطاقة وترشيد الاستهلاك المنزلي</h3>
+              <p class="project-desc">تقديم حلول هندسية تطبيقية لتحسين معامل القدرة (Power Factor) وتخفيض فاقد الطاقة في التمديدات السكنية والتجارية.</p>
+              <div class="project-footer">
+                <span class="project-meta">IEEE An-Najah</span>
+                <a href="#contact" class="project-link">تواصل للنقاش ←</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="tag-sparkle">📬</span>
+            <span>ابدأ المحادثة الآن</span>
+          </div>
+          <h2 class="section-title">تواصل مع المهندس وسام بلالم</h2>
+          <p class="section-desc">سواء كنت تبحث عن استشارة في أنظمة الطاقة الشمسية والكهربائية، أو ترغب في تصميم موقع ويب احترافي، أنا جاهز لخدمتك بأعلى جودة.</p>
+        </div>
+
+        <div class="contact-layout">
+          
+          <!-- Contact Cards Info -->
+          <div class="contact-info-col">
+            
+            <a href="https://wa.me/972593865751?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D9%88%D8%B3%D8%A7%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83" target="_blank" rel="noopener noreferrer" class="contact-box glass-card hover-glow">
+              <div class="contact-icon icon-wa">💬</div>
+              <div class="contact-box-content">
+                <div class="box-label">واتساب مباشر (سريع الرد)</div>
+                <div class="box-value" dir="ltr">+972 593 865 751</div>
+                <div class="box-hint">انقر لفتح الدردشة الفورية ⚡</div>
+              </div>
+            </a>
+
+            <a href="mailto:hishamwesam13@gmail.com" class="contact-box glass-card hover-glow">
+              <div class="contact-icon icon-mail">✉️</div>
+              <div class="contact-box-content">
+                <div class="box-label">البريد الإلكتروني المعتمد</div>
+                <div class="box-value">hishamwesam13@gmail.com</div>
+                <div class="box-hint">متاح للتعاون والفرص المهنية 📩</div>
+              </div>
+            </a>
+
+            <div class="contact-box glass-card">
+              <div class="contact-icon icon-loc">📍</div>
+              <div class="contact-box-content">
+                <div class="box-label">الموقع الجغرافي</div>
+                <div class="box-value">فلسطين — نابلس</div>
+                <div class="box-hint">جامعة النجاح الوطنية 🇵🇸</div>
+              </div>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <a href="https://www.linkedin.com/in/WesamBalalem" target="_blank" rel="noopener noreferrer" class="contact-box glass-card hover-glow linkedin-box" id="contactLinkedinBox">
+              <div class="contact-icon icon-linkedin">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.44a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/>
+                </svg>
+              </div>
+              <div class="contact-box-content">
+                <div class="box-label" id="lblLinkedin">حساب LinkedIn الرسمي</div>
+                <div class="box-value" dir="ltr">in/WesamBalalem</div>
+                <div class="box-hint" id="hintLinkedin">تواصل مهنياً عبر شبكة الأعمال 🌐</div>
+              </div>
+            </a>
+
+            <!-- GitHub Card -->
+            <a href="https://github.com/hishamwesam13" target="_blank" rel="noopener noreferrer" class="contact-box glass-card hover-glow github-box" id="contactGithubBox">
+              <div class="contact-icon icon-github">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                  <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                </svg>
+              </div>
+              <div class="contact-box-content">
+                <div class="box-label" id="lblGithub">مستودع الأكواد (GitHub)</div>
+                <div class="box-value" dir="ltr">github.com/hishamwesam13</div>
+                <div class="box-hint" id="hintGithub">استكشف المشاريع والأكواد البرمجية ⚡</div>
+              </div>
+            </a>
+
+
+
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-col">
+            <form id="contactForm" class="contact-form glass-card">
+              <div class="form-title-row">
+                <h3 class="form-title">إرسال رسالة مباشرة للمهندس</h3>
+                <span class="badge-active-dot"><span class="ping-dot-emerald"></span> جاهز للاستقبال</span>
+              </div>
+
+              <div class="form-group">
+                <label for="senderName" class="form-label">الاسم الكريم</label>
+                <input type="text" id="senderName" class="form-input" placeholder="اكتب اسمك هنا..." required>
+              </div>
+
+              <div class="form-group">
+                <label for="senderContact" class="form-label">رقم الهاتف أو البريد الإلكتروني</label>
+                <input type="text" id="senderContact" class="form-input" placeholder="للتواصل والرد عليك..." required>
+              </div>
+
+              <div class="form-group">
+                <label for="projectType" class="form-label">نوع الموضوع أو المشروع</label>
+                <select id="projectType" class="form-select">
+                  <option value="طاقة شمسية ومتجددة">مشروع أنظمة طاقة شمسية ومتجددة</option>
+                  <option value="تصميم وبرمجة موقع">تصميم وتطوير موقع إلكتروني (Vibe Coding)</option>
+                  <option value="استشارة كهربائية">استشارة في الهندسة الكهربائية والدوائر</option>
+                  <option value="تعاون هندسي أو IEEE">تعاون أكاديمي أو أنشطة IEEE</option>
+                  <option value="أخرى">أخرى</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="senderMsg" class="form-label">تفاصيل الرسالة</label>
+                <textarea id="senderMsg" class="form-textarea" rows="4" placeholder="اكتب تفاصيل استفسارك أو مشروعك هنا..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit" id="submitFormBtn">
+                <span>إرسال الرسالة عبر الواتساب فوراً</span>
+                <span>🚀</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-brand">
+        <div class="brand-name-wrap">
+          <span class="footer-title">المهندس وسام بلالم</span>
+          <svg class="flag-svg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" aria-label="علم فلسطين">
+            <rect width="600" height="100" fill="#000000"></rect>
+            <rect y="100" width="600" height="100" fill="#FFFFFF"></rect>
+            <rect y="200" width="600" height="100" fill="#007A3D"></rect>
+            <polygon points="0,0 200,150 0,300" fill="#E4312b"></polygon>
+          </svg>
+        </div>
+        <p class="footer-tagline">طالب هندسة كهربائية في جامعة النجاح الوطنية • خبير طاقة شمسية • مصمم مواقع و Vibe Coding</p>
+        <div class="footer-social-links">
+          <a href="https://www.linkedin.com/in/WesamBalalem" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="LinkedIn" title="LinkedIn: WesamBalalem">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.44a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+            <span>LinkedIn: WesamBalalem</span>
+          </a>
+          <a href="https://github.com/hishamwesam13" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="GitHub" title="GitHub: hishamwesam13">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+            <span>GitHub: hishamwesam13</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">الرئيسية</a>
+        <a href="#about">عني</a>
+        <a href="#skills">المهارات</a>
+        <a href="#cv">السيرة الذاتية</a>
+        <a href="#projects">المشاريع</a>
+        <a href="#contact">تواصل</a>
+      </div>
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            © <span id="currentYear">2026</span> جميع الحقوق محفوظة — المهندس وسام بلالم (Eng. Wesam Balalem) • فلسطين، نابلس.
+          </div>
+          <div class="palestine-pride">
+            صنع بكل فخر وشغف هندسي 🇵🇸
+          </div>
+        </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Watermark / Floating Quick Widget (as requested) -->
+  <div class="floating-wa-watermark" id="floatingWaWidget">
+    <a href="https://wa.me/972593865751?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D9%88%D8%B3%D8%A7%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83" target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="محادثة واتساب سريعة">
+      <span class="wa-ripple"></span>
+      <span class="wa-ripple ripple-2"></span>
+      <div class="wa-icon-circle">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.97.53 1.954.814 2.795.814 3.183 0 5.769-2.586 5.77-5.766.001-3.182-2.585-5.768-5.769-5.768zm0 10.375c-.754 0-1.634-.23-2.34-.65l-.167-.1-1.58.414.422-1.542-.11-.174c-.456-.728-.698-1.57-.697-2.457.001-2.43 1.977-4.407 4.409-4.407 2.431 0 4.408 1.977 4.409 4.407.001 2.432-1.976 4.409-4.409 4.409zm2.417-3.298c-.132-.066-.782-.386-.903-.43-.121-.044-.209-.066-.297.066-.088.132-.341.43-.418.518-.077.088-.154.099-.286.033-.132-.066-.558-.206-1.063-.656-.393-.35-.658-.782-.735-.914-.077-.132-.008-.204.058-.269.06-.059.132-.154.198-.231.066-.077.088-.132.132-.22.044-.088.022-.165-.011-.231-.033-.066-.297-.716-.407-.98-.107-.257-.216-.222-.297-.226-.077-.004-.165-.005-.253-.005s-.231.033-.352.165c-.121.132-.462.452-.462 1.102 0 .65.473 1.278.539 1.366.066.088.931 1.422 2.256 1.994.315.136.561.217.753.278.316.1.604.086.832.052.254-.038.782-.32 892-.628.11-.308.11-.572.077-.628-.033-.055-.121-.088-.253-.154z"/>
+        </svg>
+      </div>
+      <span class="wa-tooltip">تواصل عبر الواتساب مباشرة 💬</span>
+    </a>
+  </div>
+
+  <!-- FULLSCREEN CV PREVIEW MODAL -->
+  <div class="cv-modal" id="cvModal" aria-hidden="true">
+    <div class="cv-modal-backdrop" id="cvModalBackdrop"></div>
+    <div class="cv-modal-content">
+      <div class="cv-modal-header">
+        <div class="cv-modal-title">
+          <span>📄 Curriculum Vitae — Eng. Wesam Balalem</span>
+          <span class="cv-modal-badge">English • ATS-Ready</span>
+        </div>
+        <div class="cv-modal-controls">
+          <a href="cv.html" target="_blank" class="btn-modal-action" title="Open Fullscreen & Print PDF">
+            <span>🖨️ فتح بملء الشاشة والطباعة</span>
+          </a>
+          <button class="btn-modal-close" id="closeCvModalBtn" aria-label="إغلاق المعاينة">✕</button>
+        </div>
+      </div>
+      <div class="cv-modal-body" style="padding: 0; height: 80vh;">
+        <iframe src="cv.html" class="cv-modal-iframe" id="cvModalIframe" title="Eng. Wesam Balalem Curriculum Vitae" style="width: 100%; height: 100%; border: none; background: #0b1120;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN FLOATING STATUS BAR (Appears when logged in) -->
+  <div class="admin-top-bar" id="adminTopBar" style="display: none;">
+    <div class="admin-bar-inner">
+      <div class="admin-user-pill">
+        <span class="admin-live-dot"></span>
+        <span>وضع المدير نشط: <strong id="adminUserEmailDisplay">hishamwesam13@gmail.com</strong></span>
+      </div>
+      <div class="admin-bar-actions">
+        <button id="openAdminPanelBtn" class="btn-admin-action">⚙️ لوحة التحكم والتعديل</button>
+        <button id="adminLogoutBtn" class="btn-admin-logout">تسجيل الخروج ✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN LOGIN MODAL -->
+  <div class="admin-modal" id="adminLoginModal" aria-hidden="true">
+    <div class="admin-modal-backdrop" id="adminLoginBackdrop"></div>
+    <div class="admin-modal-box glass-card">
+      <div class="admin-box-header">
+        <div class="admin-box-title">
+          <span class="admin-badge-icon">🔒</span>
+          <span>تسجيل دخول لوحة تحكم الموقع</span>
+        </div>
+        <button class="btn-box-close" id="closeAdminLoginBtn">✕</button>
+      </div>
+      <form id="adminLoginForm" class="admin-login-form">
+        <div class="form-group">
+          <label for="adminEmailInput" class="form-label">البريد الإلكتروني</label>
+          <input type="email" id="adminEmailInput" class="form-input" placeholder="أدخل البريد الإلكتروني..." required autocomplete="off">
+        </div>
+
+        <div class="form-group">
+          <label for="adminPassInput" class="form-label">كلمة المرور</label>
+          <input type="password" id="adminPassInput" class="form-input" placeholder="أدخل كلمة المرور..." required autocomplete="off">
+        </div>
+
+        <div id="adminLoginError" class="admin-error-msg" style="display: none;"></div>
+
+        <button type="submit" class="btn-submit">
+          <span>تسجيل الدخول</span>
+          <span>🔒</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN CONTROL PANEL MODAL (THE DASHBOARD) -->
+  <div class="admin-modal" id="adminDashboardModal" aria-hidden="true">
+    <div class="admin-modal-backdrop" id="adminDashboardBackdrop"></div>
+    <div class="admin-dashboard-box glass-card">
+      <div class="admin-box-header">
+        <div class="admin-box-title">
+          <span class="admin-badge-icon">⚡</span>
+          <span>لوحة تحكم وإدارة الموقع — المهندس وسام بلالم</span>
+        </div>
+        <div class="admin-header-btns">
+          <button id="saveAllAdminChangesBtn" class="btn-admin-save">💾 حفظ التعديلات وتطبيقها فوراً</button>
+          <button class="btn-box-close" id="closeAdminDashboardBtn">✕</button>
+        </div>
+      </div>
+
+      <div class="admin-dashboard-body">
+        
+        <!-- Dashboard Tabs Nav -->
+        <div class="admin-tabs-nav">
+          <button class="admin-tab-btn active" data-tab="tab-general">👤 الهوية والنصوص</button>
+          <button class="admin-tab-btn" data-tab="tab-typing">💬 البث الحي (الكتابة)</button>
+          <button class="admin-tab-btn" data-tab="tab-contact">📞 الواتساب والتواصل</button>
+          <button class="admin-tab-btn" data-tab="tab-academic">🎓 الدراسة والـ CV</button>
+          <button class="admin-tab-btn" data-tab="tab-projects">🚀 إدارة المشاريع</button>
+          <button class="admin-tab-btn" data-tab="tab-export">⚙️ تصدير / ضبط</button>
+        </div>
+
+        <!-- Tab 1: General Info -->
+        <div class="admin-tab-content active" id="tab-general">
+          <div class="admin-section-grid">
+            <div class="form-group">
+              <label class="form-label">الاسم بالعربية</label>
+              <input type="text" id="cfg_nameAr" class="form-input" value="المهندس وسام بلالم">
+            </div>
+            <div class="form-group">
+              <label class="form-label">الاسم بالإنجليزية</label>
+              <input type="text" id="cfg_nameEn" class="form-input" value="Eng. Wesam Balalem">
+            </div>
+            <div class="form-group col-span-2">
+              <label class="form-label">المسمى الوظيفي والعنوان الفرعي</label>
+              <input type="text" id="cfg_subtitle" class="form-input" value="طالب هندسة كهربائية في جامعة النجاح • خبير طاقة شمسية ومتجددة • مصمم مواقع وخبير Vibe Coding">
+            </div>
+            <div class="form-group col-span-2">
+              <label class="form-label">شارة الحالة في الهيدر والواجهة</label>
+              <input type="text" id="cfg_statusBadge" class="form-input" value="متاح للمشاريع والحلول الهندسية والمنصات الذكية">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Typing Phrases -->
+        <div class="admin-tab-content" id="tab-typing">
+          <div class="admin-typing-settings">
+            <p class="tab-instruction">هذه العبارات تظهر في الصندوق التفاعلي وتتحرك حياً بنظام الكتابة والمسح التلقائي:</p>
+            <div class="form-group">
+              <label class="form-label">العبارة الأولى (الرئيسية):</label>
+              <textarea id="cfg_phrase1" class="form-textarea" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">العبارة الثانية (IEEE والدوائر):</label>
+              <textarea id="cfg_phrase2" class="form-textarea" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">العبارة الثالثة (المدرسة الصناعية وجامعة النجاح):</label>
+              <textarea id="cfg_phrase3" class="form-textarea" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">العبارة الرابعة (Vibe Coding):</label>
+              <textarea id="cfg_phrase4" class="form-textarea" rows="2"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Contact & WhatsApp -->
+        <div class="admin-tab-content" id="tab-contact">
+          <div class="admin-section-grid">
+            <div class="form-group">
+              <label class="form-label">رقم الواتساب الرسمي (مع المقدمة بدون +)</label>
+              <input type="text" id="cfg_waNumber" class="form-input" value="972593865751">
+            </div>
+            <div class="form-group">
+              <label class="form-label">البريد الإلكتروني المعتمد</label>
+              <input type="email" id="cfg_email" class="form-input" value="hishamwesam13@gmail.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">الموقع الجغرافي</label>
+              <input type="text" id="cfg_location" class="form-input" value="فلسطين — نابلس">
+            </div>
+            <div class="form-group">
+              <label class="form-label">رابط LinkedIn الرسمي</label>
+              <input type="url" id="cfg_linkedin" class="form-input" value="https://www.linkedin.com/in/WesamBalalem">
+            </div>
+            <div class="form-group col-span-2">
+              <label class="form-label">رابط GitHub الرسمي</label>
+              <input type="url" id="cfg_github" class="form-input" value="https://github.com/hishamwesam13">
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Academic & CV -->
+        <div class="admin-tab-content" id="tab-academic">
+          <div class="admin-section-grid">
+            <div class="form-group">
+              <label class="form-label">فترة دراسة البكالوريوس بجامعة النجاح</label>
+              <input type="text" id="cfg_najahYears" class="form-input" value="2024 – 2029">
+            </div>
+            <div class="form-group">
+              <label class="form-label">فترة المدرسة الصناعية والطاقة الشمسية</label>
+              <input type="text" id="cfg_industrialYears" class="form-input" value="2022 – 2024">
+            </div>
+            <div class="form-group col-span-2">
+              <label class="form-label">نص تفاصيل البكالوريوس</label>
+              <textarea id="cfg_najahDesc" class="form-textarea" rows="2">جامعة النجاح الوطنية — دراسة تخصصية متعمقة في الدوائر، أنظمة القدرة، التحكم الآلي والشبكات الكهربائية.</textarea>
+            </div>
+            <div class="form-group col-span-2">
+              <label class="form-label">نص تفاصيل الطاقة الشمسية بالمدرسة الصناعية</label>
+              <textarea id="cfg_industrialDesc" class="form-textarea" rows="2">تأسيس مهني وخبرة عملية في تصميم وتركيب محطات الطاقة الشمسية وحسابات الأحمال وأنظمة التحويل.</textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 5: Projects -->
+        <div class="admin-tab-content" id="tab-projects">
+          <div class="projects-editor-wrap">
+            <p class="tab-instruction">يمكنك تعديل أي مشروع مباشرة أو تحديث بياناته وسينعكس فوراً في قسم المشاريع في الموقع.</p>
+            <div class="project-edit-card glass-card p-3">
+              <label class="form-label">مشروع 1: الطاقة الشمسية</label>
+              <input type="text" id="cfg_p1Title" class="form-input mb-2" value="تصميم نظام طاقة شمسية هجين (Hybrid Solar System)">
+              <textarea id="cfg_p1Desc" class="form-textarea" rows="2">دراسة وحسابات متكاملة لربط الألواح الكهروضوئية مع بطاريات الليثيوم والشبكة المحلية لتقليل استهلاك الطاقة بنسبة 70%.</textarea>
+            </div>
+            <div class="project-edit-card glass-card p-3 mt-3">
+              <label class="form-label">مشروع 2: الويب و Vibe Coding</label>
+              <input type="text" id="cfg_p2Title" class="form-input mb-2" value="منصة بورتفوليو هندسية تفاعلية بـ 3D Parallax">
+              <textarea id="cfg_p2Desc" class="form-textarea" rows="2">بناء واجهة بورتفوليو فائقة السرعة مع مجسمات تفاعلية للأجهزة ثلاثية الأبعاد وخلفية شبكات الدوائر المتحركة.</textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 6: Export & Config -->
+        <div class="admin-tab-content" id="tab-export">
+          <div class="admin-export-area">
+            <div class="export-box glass-card p-4">
+              <h4 class="text-white font-bold mb-2">📥 تصدير واستيراد الإعدادات</h4>
+              <p class="text-muted text-xs mb-3">يمكنك تنزيل ملف الإعدادات كاملاً بصيغة JSON لنسخ احتياطي واسترجاعه على أي جهاز آخر بنقرة واحدة.</p>
+              <div class="flex gap-2">
+                <button id="downloadConfigBtn" class="btn-glass text-xs">تنزيل ملف الإعدادات (JSON) 💾</button>
+                <button id="resetDefaultsBtn" class="btn-glass text-rose-400 text-xs">إعادة ضبط للإعدادات الأصلية 🔄</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="admin-dashboard-footer">
+        <span class="admin-save-tip">💡 يتم حفظ التعديلات تلقائياً ومحلياً على جهازك وتبقى محفوظة بشكل دائم.</span>
+        <button id="saveAllAdminChangesBtnBottom" class="btn-admin-save">💾 حفظ التعديلات وتطبيقها فوراً</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
