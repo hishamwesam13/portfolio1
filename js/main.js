@@ -778,36 +778,40 @@
   let currentTiltZ = 0;
   let phoneVelocity = 0;
 
-  function animateDevices() {
+  function animateDevices(timestamp) {
+    const time = (timestamp || performance.now()) * 0.0018;
     const scrollY = window.scrollY;
     const isMobile = window.innerWidth <= 900;
     const sideScreen = document.getElementById('heroSideScreen');
     const sideScreenTop = sideScreen ? sideScreen.offsetTop : 0;
 
-    // 1. Tablet motion: "ينزل ويطلع شوي" on ALL devices (Mobile, Tablet, Laptop, PC)
+    // 1. Tablet motion: "ينزل ويطلع شوي" continuous organic floating + scroll parallax
     if (tablet) {
-      const tabletY = Math.sin(scrollY * 0.004) * 14 + (scrollY * 0.1);
-      const tabletRotY = 16 - Math.sin(scrollY * 0.003) * 6;
-      const tabletRotX = 8 + Math.cos(scrollY * 0.003) * 5;
-      tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(${tabletRotY}deg) rotateX(${tabletRotX}deg) translateZ(30px)`;
+      const tabWave = Math.sin(time * 1.6) * 12;
+      const tabScroll = isMobile ? (Math.sin(scrollY * 0.004) * 6) : (scrollY * 0.1);
+      const tabletY = tabWave + tabScroll;
+      const tabletRotY = 14 + Math.cos(time * 1.2) * 5;
+      const tabletRotX = 7 + Math.sin(time * 1.0) * 4;
+      tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(${tabletRotY}deg) rotateX(${tabletRotX}deg) translateZ(28px)`;
     }
 
-    // 2. Phone motion: "ينزل معي بالسكرول" on ALL devices
+    // 2. Phone motion: "يطلع وينزل بحيوية ونشاط مستمر"
     if (phone) {
       if (isMobile) {
-        // Mobile: smoothly descends with scroll inside the side screen frame
-        const mobileScroll = Math.max(0, scrollY - (sideScreenTop - 100));
-        const targetMobileY = Math.min(55, mobileScroll * 0.25);
-        const diff = targetMobileY - currentPhoneY;
-        currentPhoneY += diff * 0.082;
-        phoneVelocity = diff;
+        // MOBILE LIVELY FLOAT: continuous up-and-down oscillation (±18px) + scroll reaction!
+        const floatWave = Math.sin(time * 2.3) * 18;
+        const scrollReaction = Math.sin(scrollY * 0.006) * 10;
+        const totalMobileY = floatWave + scrollReaction;
 
-        const tiltX = 10 + Math.max(-10, Math.min(14, phoneVelocity * 0.15));
-        const tiltY = -12 + Math.sin(currentPhoneY * 0.04) * 4;
+        // Dynamic 3D tilt
+        const tiltX = 10 + Math.sin(time * 1.5) * 5;
+        const tiltY = -12 + Math.cos(time * 1.9) * 6;
+        const tiltZ = Math.sin(time * 1.1) * 3;
 
-        phone.style.transform = `translate3d(0, ${currentPhoneY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(40px) scale(0.88)`;
+        phone.style.transform = `translate3d(0, ${totalMobileY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg) rotateZ(${tiltZ}deg) translateZ(48px) scale(0.92)`;
       } else {
-        // Desktop: full glide down in side column alongside content
+        // DESKTOP MODE: continuous alive floating + glides down with scroll in side column
+        const floatWave = Math.sin(time * 2.0) * 12;
         const startOffset = Math.max(0, sideScreenTop - 40);
         const relativeScroll = Math.max(0, scrollY - startOffset);
         targetPhoneY = relativeScroll * 0.94;
@@ -817,15 +821,16 @@
         currentPhoneY += diff * 0.082;
         phoneVelocity = diff;
 
-        const targetTiltX = 10 + Math.max(-12, Math.min(16, phoneVelocity * 0.1));
-        const targetTiltY = -14 + Math.sin(currentPhoneY * 0.0022) * 6;
+        const targetTiltX = 10 + Math.max(-12, Math.min(16, phoneVelocity * 0.1)) + Math.sin(time * 1.4) * 3;
+        const targetTiltY = -14 + Math.sin(currentPhoneY * 0.0022) * 6 + Math.cos(time * 1.6) * 4;
         const targetTiltZ = Math.max(-5, Math.min(5, -phoneVelocity * 0.035));
 
         currentTiltX += (targetTiltX - currentTiltX) * 0.1;
         currentTiltY += (targetTiltY - currentTiltY) * 0.1;
         currentTiltZ += (targetTiltZ - currentTiltZ) * 0.1;
 
-        phone.style.transform = `translate3d(0, ${currentPhoneY}px, 0) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg) rotateZ(${currentTiltZ}deg) translateZ(60px)`;
+        const totalY = currentPhoneY + floatWave;
+        phone.style.transform = `translate3d(0, ${totalY}px, 0) rotateX(${currentTiltX}deg) rotateY(${currentTiltY}deg) rotateZ(${currentTiltZ}deg) translateZ(60px)`;
       }
     }
 
