@@ -787,28 +787,29 @@
 
     // 1. Tablet motion: "ينزل ويطلع شوي" continuous organic floating + scroll parallax
     if (tablet) {
-      const tabWave = Math.sin(time * 1.6) * 12;
-      const tabScroll = isMobile ? (Math.sin(scrollY * 0.004) * 6) : (scrollY * 0.1);
+      const tabWave = isMobile ? (Math.sin(time * 1.5) * 6) : (Math.sin(time * 1.6) * 12);
+      const tabScroll = isMobile ? (Math.sin(scrollY * 0.004) * 3) : (scrollY * 0.1);
       const tabletY = tabWave + tabScroll;
-      const tabletRotY = 14 + Math.cos(time * 1.2) * 5;
-      const tabletRotX = 7 + Math.sin(time * 1.0) * 4;
-      tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(${tabletRotY}deg) rotateX(${tabletRotX}deg) translateZ(28px)`;
+      const tabletRotY = isMobile ? (10 + Math.cos(time * 1.2) * 3) : (14 + Math.cos(time * 1.2) * 5);
+      const tabletRotX = isMobile ? (5 + Math.sin(time * 1.0) * 2) : (7 + Math.sin(time * 1.0) * 4);
+      const tabletTransZ = isMobile ? 18 : 28;
+      tablet.style.transform = `translate3d(0, ${tabletY}px, 0) rotateY(${tabletRotY}deg) rotateX(${tabletRotX}deg) translateZ(${tabletTransZ}px)`;
     }
 
     // 2. Phone motion: "يطلع وينزل بحيوية ونشاط مستمر"
     if (phone) {
       if (isMobile) {
-        // MOBILE LIVELY FLOAT: continuous up-and-down oscillation (±18px) + scroll reaction!
-        const floatWave = Math.sin(time * 2.3) * 18;
-        const scrollReaction = Math.sin(scrollY * 0.006) * 10;
+        // MOBILE LIVELY FLOAT: continuous up-and-down oscillation within framed bounds
+        const floatWave = Math.sin(time * 2.2) * 10;
+        const scrollReaction = Math.sin(scrollY * 0.005) * 4;
         const totalMobileY = floatWave + scrollReaction;
 
         // Dynamic 3D tilt
-        const tiltX = 10 + Math.sin(time * 1.5) * 5;
-        const tiltY = -12 + Math.cos(time * 1.9) * 6;
-        const tiltZ = Math.sin(time * 1.1) * 3;
+        const tiltX = 8 + Math.sin(time * 1.5) * 4;
+        const tiltY = -10 + Math.cos(time * 1.8) * 4;
+        const tiltZ = Math.sin(time * 1.1) * 2;
 
-        phone.style.transform = `translate3d(0, ${totalMobileY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg) rotateZ(${tiltZ}deg) translateZ(48px) scale(0.92)`;
+        phone.style.transform = `translate3d(0, ${totalMobileY}px, 0) rotateX(${tiltX}deg) rotateY(${tiltY}deg) rotateZ(${tiltZ}deg) translateZ(32px) scale(0.95)`;
       } else {
         // DESKTOP MODE: continuous alive floating + glides down with scroll in side column
         const floatWave = Math.sin(time * 2.0) * 12;
