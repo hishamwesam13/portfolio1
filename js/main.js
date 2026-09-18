@@ -294,6 +294,7 @@
      1. SITE CONFIGURATION STORE (DYNAMIC ADMIN DATA)
      ========================================================================== */
   const DEFAULT_CONFIG = {
+    avatarUrl: "wesam-official.jpg?v=20260918",
     nameAr: "المهندس وسام بلالم",
     nameEn: "Eng. Wesam Balalem",
     subtitle: "طالب هندسة كهربائية في جامعة النجاح • خبير طاقة شمسية ومتجددة • مصمم مواقع وخبير Vibe Coding",
@@ -316,7 +317,20 @@
   function loadConfig() {
     try {
       const saved = localStorage.getItem('wesam_portfolio_config');
-      if (saved) return Object.assign({}, DEFAULT_CONFIG, JSON.parse(saved));
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        const customAvatar = localStorage.getItem('wesam_custom_avatar');
+        if (customAvatar && customAvatar !== 'wesam.jpg') {
+          parsed.avatarUrl = customAvatar;
+        } else {
+          parsed.avatarUrl = "wesam-official.jpg?v=20260918";
+        }
+        return Object.assign({}, DEFAULT_CONFIG, parsed);
+      }
+      const customAvatar = localStorage.getItem('wesam_custom_avatar');
+      if (customAvatar && customAvatar !== 'wesam.jpg') {
+        return Object.assign({}, DEFAULT_CONFIG, { avatarUrl: customAvatar });
+      }
     } catch (e) {
       console.warn('Could not read config from storage', e);
     }
@@ -1358,23 +1372,56 @@
     }, 400);
   }
 
-  // Secret 3-Click on Palestine Flag in Navbar to open Admin (بدون أي تلميحات)
-  const palestineTrigger = document.getElementById('palestineSecretTrigger');
+  // Secret Trigger on Palestine Flag (3-Click OR Long-Press for Mobile & Desktop)
   let flagClickCount = 0;
   let flagClickTimer = null;
-  if (palestineTrigger) {
-    palestineTrigger.addEventListener('click', (e) => {
+  let flagHoldTimer = null;
+
+  function triggerAdminAction() {
+    flagClickCount = 0;
+    clearTimeout(flagClickTimer);
+    clearTimeout(flagHoldTimer);
+    if (navigator.vibrate) {
+      try { navigator.vibrate([40, 60, 40]); } catch (e) {}
+    }
+    openAdminLogin();
+  }
+
+  // Bind to navbar trigger, flag wrap, and all palestine flag SVGs across the page
+  const flagElements = document.querySelectorAll('#palestineSecretTriggerWrap, #palestineSecretTrigger, .secret-trigger, .flag-svg');
+  flagElements.forEach(el => {
+    // 1. Click / Tap Handling (3 rapid clicks within 1600ms)
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       flagClickCount++;
-      if (flagClickCount === 3) {
-        flagClickCount = 0;
-        clearTimeout(flagClickTimer);
-        openAdminLogin();
+
+      // Visual pulse feedback on tap
+      el.classList.add('flag-tap-pulse');
+      setTimeout(() => el.classList.remove('flag-tap-pulse'), 220);
+
+      if (flagClickCount >= 3) {
+        triggerAdminAction();
       } else {
         clearTimeout(flagClickTimer);
-        flagClickTimer = setTimeout(() => { flagClickCount = 0; }, 800);
+        flagClickTimer = setTimeout(() => { flagClickCount = 0; }, 1600);
       }
     });
-  }
+
+    // 2. Long-Press Handling (Hold for 1.2s - ideal for mobile phone touchscreens)
+    el.addEventListener('pointerdown', (e) => {
+      clearTimeout(flagHoldTimer);
+      flagHoldTimer = setTimeout(() => {
+        el.classList.add('flag-tap-pulse');
+        triggerAdminAction();
+      }, 1200);
+    });
+
+    const cancelHold = () => { clearTimeout(flagHoldTimer); };
+    el.addEventListener('pointerup', cancelHold);
+    el.addEventListener('pointercancel', cancelHold);
+    el.addEventListener('pointerleave', cancelHold);
+  });
 
   // Keyboard shortcut: Alt + W (Wesam) or Alt + A
   document.addEventListener('keydown', (e) => {
@@ -1389,6 +1436,73 @@
       closeAdminDashboard();
     }
   });
+
+  // Photo Management in Admin Dashboard
+  const avatarFileInput = document.getElementById('cfg_avatarFileInput');
+  const avatarUrlInput = document.getElementById('cfg_avatarUrlInput');
+  const avatarPreview = document.getElementById('adminAvatarPreview');
+  const resetAvatarBtn = document.getElementById('btnResetDefaultAvatar');
+  const applyAvatarUrlBtn = document.getElementById('btnApplyAvatarUrl');
+  const photoFeedback = document.getElementById('photoUploadFeedback');
+
+  function showPhotoFeedback(msg, isSuccess = true) {
+    if (!photoFeedback) return;
+    photoFeedback.textContent = msg;
+    photoFeedback.style.display = 'block';
+    photoFeedback.style.color = isSuccess ? '#34d399' : '#f87171';
+    photoFeedback.style.fontSize = '11px';
+    photoFeedback.style.marginTop = '6px';
+    photoFeedback.style.fontWeight = 'bold';
+    setTimeout(() => {
+      if (photoFeedback) photoFeedback.style.display = 'none';
+    }, 4500);
+  }
+
+  if (avatarFileInput) {
+    avatarFileInput.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        showPhotoFeedback('⚠️ يرجى اختيار ملف صورة صالح (JPG, PNG, WebP).', false);
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const dataUrl = ev.target.result;
+        siteConfig.avatarUrl = dataUrl;
+        localStorage.setItem('wesam_custom_avatar', dataUrl);
+        if (avatarPreview) avatarPreview.src = dataUrl;
+        if (avatarUrlInput) avatarUrlInput.value = '';
+        applyConfigToDom();
+        showPhotoFeedback('✨ تم تحميل صورتك بنجاح وعرضها في الموقع! احفظ التعديلات للتثبيت.');
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  if (applyAvatarUrlBtn && avatarUrlInput) {
+    applyAvatarUrlBtn.addEventListener('click', () => {
+      const url = avatarUrlInput.value.trim();
+      if (!url) return;
+      siteConfig.avatarUrl = url;
+      localStorage.setItem('wesam_custom_avatar', url);
+      if (avatarPreview) avatarPreview.src = url;
+      applyConfigToDom();
+      showPhotoFeedback('✨ تم تطبيق رابط الصورة بنجاح في الموقع!');
+    });
+  }
+
+  if (resetAvatarBtn) {
+    resetAvatarBtn.addEventListener('click', () => {
+      siteConfig.avatarUrl = 'wesam-official.jpg?v=20260918';
+      localStorage.removeItem('wesam_custom_avatar');
+      if (avatarPreview) avatarPreview.src = 'wesam-official.jpg?v=20260918';
+      if (avatarUrlInput) avatarUrlInput.value = '';
+      if (avatarFileInput) avatarFileInput.value = '';
+      applyConfigToDom();
+      showPhotoFeedback('🔄 تمت استعادة الصورة الأصلية الافتراضية.');
+    });
+  }
 
   // Populate Admin Form Fields with current config
   function populateAdminForm() {
@@ -1419,6 +1533,15 @@
     for (const [id, val] of Object.entries(fields)) {
       const el = document.getElementById(id);
       if (el) el.value = val;
+    }
+
+    if (avatarPreview) {
+      avatarPreview.src = siteConfig.avatarUrl || 'wesam-official.jpg?v=20260918';
+    }
+    if (avatarUrlInput && siteConfig.avatarUrl && !siteConfig.avatarUrl.includes('wesam-official') && !siteConfig.avatarUrl.includes('wesam.jpg')) {
+      if (!siteConfig.avatarUrl.startsWith('data:')) {
+        avatarUrlInput.value = siteConfig.avatarUrl;
+      }
     }
   }
 
@@ -1510,6 +1633,68 @@
       if (targetContent) targetContent.classList.add('active');
     });
   });
+
+  // Apply Configuration to DOM Elements
+  function applyConfigToDom() {
+    // 1. Avatar images across site
+    let currentAvatar = siteConfig.avatarUrl || localStorage.getItem('wesam_custom_avatar');
+    if (!currentAvatar || currentAvatar === 'wesam.jpg') {
+      currentAvatar = 'wesam-official.jpg?v=20260918';
+    }
+    document.querySelectorAll('.brand-avatar, .hero-avatar-img, #adminAvatarPreview').forEach(img => {
+      img.src = currentAvatar;
+    });
+
+    // 2. Names & Titles
+    document.querySelectorAll('.brand-name').forEach(el => {
+      el.textContent = (currentLang === 'ar') ? (siteConfig.nameAr || "المهندس وسام بلالم") : (siteConfig.nameEn || "Eng. Wesam Balalem");
+    });
+    const heroNameAr = document.querySelector('.hero-name .block-ar');
+    if (heroNameAr && siteConfig.nameAr) heroNameAr.textContent = siteConfig.nameAr;
+    const heroNameEn = document.querySelector('.hero-name .block-en');
+    if (heroNameEn && siteConfig.nameEn) heroNameEn.textContent = siteConfig.nameEn;
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    if (heroSubtitle && siteConfig.subtitle) heroSubtitle.textContent = siteConfig.subtitle;
+    const cvPersonName = document.querySelector('.cv-person-name');
+    if (cvPersonName && siteConfig.nameAr) cvPersonName.textContent = siteConfig.nameAr;
+
+    // 3. Status Badges
+    const statusBadgeText = document.querySelector('.badge-status span:last-child, .badge-available span');
+    if (statusBadgeText && siteConfig.statusBadge) {
+      statusBadgeText.textContent = siteConfig.statusBadge;
+    }
+
+    // 4. Contact Links & WhatsApp
+    if (siteConfig.waNumber) {
+      const waLinks = document.querySelectorAll('a[href*="wa.me"]');
+      waLinks.forEach(a => {
+        const textParam = encodeURIComponent("مرحباً مهندس وسام، أود التواصل معك بخصوص استشارة أو مشروع");
+        a.href = `https://wa.me/${siteConfig.waNumber}?text=${textParam}`;
+      });
+      const waDisplay = document.querySelector('.btn-nav-wa span:last-child');
+      if (waDisplay) waDisplay.textContent = siteConfig.waNumber;
+    }
+
+    if (siteConfig.email) {
+      const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+      emailLinks.forEach(a => a.href = `mailto:${siteConfig.email}`);
+      const emailTexts = document.querySelectorAll('.email-link');
+      emailTexts.forEach(el => el.textContent = siteConfig.email);
+    }
+
+    if (siteConfig.linkedin) {
+      const lnkLinks = document.querySelectorAll('a[href*="linkedin.com"]');
+      lnkLinks.forEach(a => a.href = siteConfig.linkedin);
+    }
+
+    if (siteConfig.github) {
+      const ghLinks = document.querySelectorAll('a[href*="github.com"]');
+      ghLinks.forEach(a => a.href = siteConfig.github);
+    }
+  }
+
+  // Initial call to ensure stored custom config is applied on load
+  applyConfigToDom();
 
   // Save Config Changes
   function saveAdminChanges() {

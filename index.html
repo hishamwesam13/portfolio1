@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>المهندس وسام بلالم | هندسة كهربائية وتصميم مواقع Vibe Coding</title>
   <meta name="description" content="البورتفوليو الرسمي للمهندس وسام بلالم - طالب بكالوريوس هندسة كهربائية بجامعة النجاح الوطنية، خبير طاقة شمسية ومتجددة، ومصمم مواقع ومطور Vibe Coding.">
   
@@ -32,18 +32,20 @@
       <!-- Profile Header Identical to snippet requested -->
       <a href="#hero" class="nav-brand group" data-cursor="true">
         <div class="avatar-ring">
-          <img src="wesam.jpg" alt="المهندس وسام بلالم" class="brand-avatar" loading="eager">
+          <img src="wesam-official.jpg?v=20260918" alt="المهندس وسام بلالم" class="brand-avatar" loading="eager">
         </div>
         <div class="brand-meta text-right">
           <div class="brand-name-wrap">
             <span class="brand-name">م. وسام بلالم</span>
-            <!-- Palestine Flag SVG (Secret 3-Click Admin Trigger) -->
-            <svg class="flag-svg secret-trigger" id="palestineSecretTrigger" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" aria-label="علم فلسطين" title="فلسطين">
-              <rect width="600" height="100" fill="#000000"></rect>
-              <rect y="100" width="600" height="100" fill="#FFFFFF"></rect>
-              <rect y="200" width="600" height="100" fill="#007A3D"></rect>
-              <polygon points="0,0 200,150 0,300" fill="#E4312b"></polygon>
-            </svg>
+            <!-- Palestine Flag (Secret 3-Click / Hold Admin Trigger) -->
+            <span class="flag-trigger-wrapper" id="palestineSecretTriggerWrap" title="فلسطين (انقر 3 مرات أو اضغط مطولاً للوحة الأدمن)">
+              <svg class="flag-svg secret-trigger" id="palestineSecretTrigger" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" aria-label="علم فلسطين">
+                <rect width="600" height="100" fill="#000000"></rect>
+                <rect y="100" width="600" height="100" fill="#FFFFFF"></rect>
+                <rect y="200" width="600" height="100" fill="#007A3D"></rect>
+                <polygon points="0,0 200,150 0,300" fill="#E4312b"></polygon>
+              </svg>
+            </span>
           </div>
           <span class="brand-title">بكالوريوس في الهندسة الكهربائية | Electrical & Web Designer</span>
         </div>
@@ -120,7 +122,7 @@
           <!-- Hero Headings & Profile Badge -->
           <div class="hero-profile-badge">
             <div class="hero-avatar-wrap">
-              <img src="wesam.jpg" alt="المهندس وسام بلالم" class="hero-avatar-img">
+              <img src="wesam-official.jpg?v=20260918" alt="المهندس وسام بلالم" class="hero-avatar-img">
               <span class="hero-avatar-status" title="متاح للعمل والمشاريع"></span>
             </div>
             <div class="hero-profile-info">
@@ -1195,9 +1197,44 @@
           <button class="admin-tab-btn" data-tab="tab-export">⚙️ تصدير / ضبط</button>
         </div>
 
-        <!-- Tab 1: General Info -->
+        <!-- Tab 1: General Info & Photo -->
         <div class="admin-tab-content active" id="tab-general">
-          <div class="admin-section-grid">
+          
+          <!-- Photo Management Card -->
+          <div class="admin-photo-card glass-card">
+            <div class="photo-card-header">
+              <div class="photo-card-title-row">
+                <span class="photo-icon">📸</span>
+                <span class="photo-title">الصورة الشخصية الرسمية (Avatar)</span>
+              </div>
+              <p class="photo-sub">تنعكس صورتك تلقائياً في أعلى شاشة الموقع (Hero)، ودائرة النافبار، وملف الـ CV.</p>
+            </div>
+            <div class="photo-card-body">
+              <div class="photo-preview-wrap">
+                <img src="wesam-official.jpg?v=20260918" alt="معاينة الصورة الحالية" id="adminAvatarPreview" class="admin-avatar-preview-img">
+                <span class="photo-preview-label">المعاينة الحالية</span>
+              </div>
+              <div class="photo-controls">
+                <div class="photo-btn-row">
+                  <label for="cfg_avatarFileInput" class="btn-photo-upload" data-cursor="true">
+                    <span>📁 اختيار صورة من الجهاز / الهاتف</span>
+                    <input type="file" id="cfg_avatarFileInput" accept="image/*" style="display: none;">
+                  </label>
+                  <button type="button" id="btnResetDefaultAvatar" class="btn-photo-reset" title="استعادة الصورة الأصلية الافتراضية">🔄 استعادة الأصلية</button>
+                </div>
+                <div class="photo-url-row">
+                  <label for="cfg_avatarUrlInput" class="form-label text-xs">أو رابط صورة مباشر (URL):</label>
+                  <div class="url-input-wrap">
+                    <input type="text" id="cfg_avatarUrlInput" class="form-input text-xs" placeholder="مثال: wesam.jpg أو رابط https://...">
+                    <button type="button" id="btnApplyAvatarUrl" class="btn-apply-url">تطبيق ↵</button>
+                  </div>
+                </div>
+                <div id="photoUploadFeedback" class="photo-feedback" style="display: none;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-section-grid mt-4">
             <div class="form-group">
               <label class="form-label">الاسم بالعربية</label>
               <input type="text" id="cfg_nameAr" class="form-input" value="المهندس وسام بلالم">
