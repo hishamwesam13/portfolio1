@@ -294,7 +294,7 @@
      1. SITE CONFIGURATION STORE (DYNAMIC ADMIN DATA)
      ========================================================================== */
   const DEFAULT_CONFIG = {
-    avatarUrl: "wesam-official.jpg?v=20260918",
+    avatarUrl: "wesam-official.jpg?v=20260922",
     nameAr: "المهندس وسام بلالم",
     nameEn: "Eng. Wesam Balalem",
     subtitle: "طالب هندسة كهربائية في جامعة النجاح • خبير طاقة شمسية ومتجددة • مصمم مواقع وخبير Vibe Coding",
@@ -323,7 +323,7 @@
         if (customAvatar && customAvatar !== 'wesam.jpg') {
           parsed.avatarUrl = customAvatar;
         } else {
-          parsed.avatarUrl = "wesam-official.jpg?v=20260918";
+          parsed.avatarUrl = "wesam-official.jpg?v=20260922";
         }
         return Object.assign({}, DEFAULT_CONFIG, parsed);
       }
@@ -1494,9 +1494,9 @@
 
   if (resetAvatarBtn) {
     resetAvatarBtn.addEventListener('click', () => {
-      siteConfig.avatarUrl = 'wesam-official.jpg?v=20260918';
+      siteConfig.avatarUrl = 'wesam-official.jpg?v=20260922';
       localStorage.removeItem('wesam_custom_avatar');
-      if (avatarPreview) avatarPreview.src = 'wesam-official.jpg?v=20260918';
+      if (avatarPreview) avatarPreview.src = 'wesam-official.jpg?v=20260922';
       if (avatarUrlInput) avatarUrlInput.value = '';
       if (avatarFileInput) avatarFileInput.value = '';
       applyConfigToDom();
@@ -1536,7 +1536,7 @@
     }
 
     if (avatarPreview) {
-      avatarPreview.src = siteConfig.avatarUrl || 'wesam-official.jpg?v=20260918';
+      avatarPreview.src = siteConfig.avatarUrl || 'wesam-official.jpg?v=20260922';
     }
     if (avatarUrlInput && siteConfig.avatarUrl && !siteConfig.avatarUrl.includes('wesam-official') && !siteConfig.avatarUrl.includes('wesam.jpg')) {
       if (!siteConfig.avatarUrl.startsWith('data:')) {
@@ -1639,7 +1639,7 @@
     // 1. Avatar images across site
     let currentAvatar = siteConfig.avatarUrl || localStorage.getItem('wesam_custom_avatar');
     if (!currentAvatar || currentAvatar === 'wesam.jpg') {
-      currentAvatar = 'wesam-official.jpg?v=20260918';
+      currentAvatar = 'wesam-official.jpg?v=20260922';
     }
     document.querySelectorAll('.brand-avatar, .hero-avatar-img, #adminAvatarPreview').forEach(img => {
       img.src = currentAvatar;
